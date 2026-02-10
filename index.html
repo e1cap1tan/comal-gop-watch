@@ -637,7 +637,7 @@
                 <div class="avatar">
                     ${avatarContent}
                 </div>
-                <div class="name">${c.name}</div>
+                <div class="name"><a href="profiles/${c.name.toLowerCase().replace(/\./g, '').replace(/\s+/g, '-')}.html" style="color:var(--navy);text-decoration:none;">${c.name}</a></div>
                 <div class="status">${c.status}</div>
                 ${c.incumbent ? '<span class="badge incumbent">★ Incumbent</span>' : ''}
             </div>`;
@@ -691,14 +691,16 @@
         html += `<div class="officials-group"><h3>City of New Braunfels</h3>`;
         city.forEach(o => {
             const photoHtml = o.photo ? `<img class="official-photo" src="${o.photo}" alt="${o.name}" loading="lazy">` : '';
-            html += `<div class="official-row">${photoHtml}<span class="title">${o.title}</span><span class="name">${o.name}${o.term ? ' (' + o.term + ')' : ''}</span></div>`;
+            const cityLink = o.name.includes('†') ? 'profiles/county-judge.html' : 'profiles/' + o.name.replace(/\(R\)/g,'').trim().toLowerCase().replace(/\./g, '').replace(/\s+/g, '-') + '.html';
+            html += `<div class="official-row">${photoHtml}<span class="title">${o.title}</span><span class="name"><a href="${cityLink}" style="color:var(--text-muted);text-decoration:none;">${o.name}${o.term ? ' (' + o.term + ')' : ''}</a></span></div>`;
         });
         html += `</div>`;
 
         html += `<div class="officials-group"><h3>County &amp; State</h3>`;
         countyState.forEach(o => {
             const photoHtml = o.photo ? `<img class="official-photo" src="${o.photo}" alt="${o.name}" loading="lazy">` : '';
-            html += `<div class="official-row">${photoHtml}<span class="title">${o.title}</span><span class="name">${o.name}${o.term ? ' (' + o.term + ')' : ''}</span></div>`;
+            const csLink = o.name.includes('†') ? 'profiles/county-judge.html' : 'profiles/' + o.name.replace(/\(R\)/g,'').trim().toLowerCase().replace(/\./g, '').replace(/\s+/g, '-') + '.html';
+            html += `<div class="official-row">${photoHtml}<span class="title">${o.title}</span><span class="name"><a href="${csLink}" style="color:var(--text-muted);text-decoration:none;">${o.name}${o.term ? ' (' + o.term + ')' : ''}</a></span></div>`;
         });
         html += `</div></div>`;
 

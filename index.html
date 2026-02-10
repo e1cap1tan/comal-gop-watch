@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Comal County GOP Watch</title>
+    <style>
+        :root {
+            --bg: #f8fafc;
+            --card: #ffffff;
+            --primary: #dc2626;
+            --secondary: #2563eb;
+            --accent: #1e40af;
+            --text: #1f2937;
+            --muted: #6b7280;
+            --border: #e5e7eb;
+            --success: #059669;
+            --warning: #d97706;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            padding: 32px 0 40px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            color: white;
+            margin: -20px -20px 24px -20px;
+        }
+
+        header h1 {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        header p {
+            font-size: 16px;
+            opacity: 0.9;
+        }
+
+        .section {
+            background: var(--card);
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 24px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+            border-left: 4px solid var(--primary);
+        }
+
+        .section h2 {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: var(--text);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .section h3 {
+            font-size: 16px;
+            font-weight: 600;
+            margin: 20px 0 12px 0;
+            color: var(--text);
+        }
+
+        .candidate-list {
+            display: grid;
+            gap: 12px;
+        }
+
+        .candidate {
+            background: #f8fafc;
+            border-radius: 8px;
+            padding: 16px;
+            border-left: 3px solid var(--secondary);
+        }
+
+        .candidate.incumbent {
+            border-left-color: var(--success);
+            background: #f0fdf4;
+        }
+
+        .candidate-name {
+            font-weight: 600;
+            font-size: 16px;
+        }
+
+        .candidate-status {
+            font-size: 12px;
+            color: var(--muted);
+            margin-top: 4px;
+        }
+
+        .badge {
+            display: inline-block;
+            font-size: 11px;
+            font-weight: 600;
+            padding: 4px 8px;
+            border-radius: 4px;
+            margin-left: 8px;
+        }
+
+        .badge.incumbent {
+            background: #dcfce7;
+            color: var(--success);
+        }
+
+        .badge.deadline {
+            background: #fed7d7;
+            color: #c53030;
+        }
+
+        .official-list {
+            display: grid;
+            gap: 8px;
+        }
+
+        .official {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .official:last-child {
+            border-bottom: none;
+        }
+
+        .official-title {
+            font-weight: 500;
+            color: var(--text);
+        }
+
+        .official-name {
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        .calendar-item {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 16px;
+            background: #f8fafc;
+            border-radius: 8px;
+            margin-bottom: 12px;
+            border-left: 3px solid var(--secondary);
+        }
+
+        .calendar-item.upcoming {
+            border-left-color: var(--warning);
+            background: #fffbeb;
+        }
+
+        .calendar-date {
+            font-weight: 700;
+            font-size: 16px;
+            min-width: 80px;
+            color: var(--text);
+        }
+
+        .calendar-event {
+            flex: 1;
+            font-weight: 500;
+        }
+
+        .news-placeholder {
+            text-align: center;
+            padding: 40px;
+            color: var(--muted);
+            background: #f8fafc;
+            border-radius: 8px;
+            border: 2px dashed var(--border);
+        }
+
+        .updated {
+            text-align: center;
+            font-size: 12px;
+            color: var(--muted);
+            padding: 32px 0 16px;
+        }
+
+        @media (max-width: 640px) {
+            .container {
+                padding: 16px;
+            }
+            
+            header {
+                margin: -16px -16px 20px -16px;
+                padding: 24px 16px 32px;
+            }
+            
+            header h1 {
+                font-size: 24px;
+            }
+            
+            .section {
+                padding: 20px;
+            }
+            
+            .calendar-item {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 8px;
+            }
+            
+            .calendar-date {
+                min-width: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🇺🇸 Comal County GOP Watch</h1>
+            <p>Your source for New Braunfels and Comal County Republican politics</p>
+        </header>
+
+        <div id="content"></div>
+
+        <div class="updated" id="updated"></div>
+    </div>
+
+    <script>
+    // POLITICAL DATA — Updated automatically
+    const POLITICAL_DATA = {
+        updated: "2026-02-10T09:30:00-06:00",
+        
+        mayoral_candidates: [
+            { name: "Neal Linnartz", status: "Incumbent", incumbent: true },
+            { name: "Michael French", status: "Candidate", incumbent: false },
+            { name: "Bradley Porter", status: "Candidate", incumbent: false },
+            { name: "Angela Allen", status: "Candidate", incumbent: false },
+            { name: "Jonathon Frazier", status: "Candidate", incumbent: false }
+        ],
+        
+        city_council: {
+            district_5: [],
+            district_6: []
+        },
+        
+        current_officials: [
+            { title: "Mayor", name: "Neal Linnartz", term: "2023-2026" },
+            { title: "City Council District 1", name: "TBD", term: "" },
+            { title: "City Council District 2", name: "TBD", term: "" },
+            { title: "City Council District 3", name: "TBD", term: "" },
+            { title: "City Council District 4", name: "TBD", term: "" },
+            { title: "City Council District 5", name: "TBD", term: "Up for election 2026" },
+            { title: "City Council District 6", name: "TBD", term: "Up for election 2026" },
+            { title: "County Judge", name: "TBD", term: "" },
+            { title: "Commissioner Pct 1", name: "TBD", term: "" },
+            { title: "Commissioner Pct 2", name: "TBD", term: "" },
+            { title: "Commissioner Pct 3", name: "TBD", term: "" },
+            { title: "Commissioner Pct 4", name: "TBD", term: "" },
+            { title: "State Rep District 73", name: "TBD", term: "" },
+            { title: "State Senator District 25", name: "TBD", term: "" }
+        ],
+        
+        election_calendar: [
+            { date: "Feb 13, 2026", event: "NB City Council filing deadline", upcoming: true },
+            { date: "Feb 18-27", event: "Early voting (TX Primary)", upcoming: false },
+            { date: "Mar 3, 2026", event: "Texas Primary Election", upcoming: false },
+            { date: "May 2026", event: "New Braunfels Municipal Election", upcoming: false },
+            { date: "May 26, 2026", event: "Primary Runoff (if needed)", upcoming: false },
+            { date: "Nov 3, 2026", event: "General Election", upcoming: false }
+        ]
+    };
+
+    function isUpcoming(dateStr) {
+        const today = new Date();
+        const eventDate = new Date(dateStr.replace(/(\d{4})/, '$1') + ' 23:59:59');
+        const daysUntil = Math.ceil((eventDate - today) / (1000 * 60 * 60 * 24));
+        return daysUntil >= 0 && daysUntil <= 30;
+    }
+
+    function render() {
+        const container = document.getElementById('content');
+        const data = POLITICAL_DATA;
+        
+        let html = '';
+
+        // Upcoming Elections Section
+        html += `
+        <div class="section">
+            <h2>🗳️ Upcoming Elections</h2>
+            <div class="calendar-item upcoming">
+                <div class="calendar-date">May 2026</div>
+                <div class="calendar-event">New Braunfels Mayor & City Council Elections</div>
+            </div>
+            <div class="calendar-item">
+                <div class="calendar-date">Mar 3</div>
+                <div class="calendar-event">Texas Republican Primary</div>
+            </div>
+        </div>`;
+
+        // Mayor Race Section
+        html += `
+        <div class="section">
+            <h2>👑 Mayor Race</h2>
+            <p style="margin-bottom: 16px; color: var(--muted);">Filing deadline: <strong>February 13, 2026</strong> <span class="badge deadline">3 days left</span></p>
+            <div class="candidate-list">`;
+        
+        data.mayoral_candidates.forEach(candidate => {
+            html += `
+                <div class="candidate ${candidate.incumbent ? 'incumbent' : ''}">
+                    <div class="candidate-name">
+                        ${candidate.name}
+                        ${candidate.incumbent ? '<span class="badge incumbent">Incumbent</span>' : ''}
+                    </div>
+                    <div class="candidate-status">${candidate.status}</div>
+                </div>`;
+        });
+        
+        html += `</div></div>`;
+
+        // City Council Section
+        html += `
+        <div class="section">
+            <h2>🏛️ City Council</h2>
+            <h3>District 5</h3>
+            <p style="color: var(--muted); font-style: italic;">No candidates filed yet</p>
+            <h3>District 6</h3>
+            <p style="color: var(--muted); font-style: italic;">No candidates filed yet</p>
+            <p style="margin-top: 16px; font-size: 14px; color: var(--muted);">Filing deadline: <strong>February 13, 2026</strong></p>
+        </div>`;
+
+        // Current Officials Section
+        html += `
+        <div class="section">
+            <h2>🏢 Current Officials</h2>
+            <div class="official-list">`;
+        
+        data.current_officials.forEach(official => {
+            html += `
+                <div class="official">
+                    <div class="official-title">${official.title}</div>
+                    <div class="official-name">${official.name} ${official.term ? '(' + official.term + ')' : ''}</div>
+                </div>`;
+        });
+        
+        html += `</div></div>`;
+
+        // Election Calendar Section
+        html += `
+        <div class="section">
+            <h2>📅 Election Calendar</h2>`;
+        
+        data.election_calendar.forEach(item => {
+            const upcoming = item.date.includes('Feb') || item.upcoming;
+            html += `
+                <div class="calendar-item ${upcoming ? 'upcoming' : ''}">
+                    <div class="calendar-date">${item.date}</div>
+                    <div class="calendar-event">${item.event}</div>
+                </div>`;
+        });
+        
+        html += `</div>`;
+
+        // Local News Section
+        html += `
+        <div class="section">
+            <h2>📰 Local News</h2>
+            <div class="news-placeholder">
+                <div style="font-size: 24px; margin-bottom: 12px;">📰</div>
+                <p>Local political news and updates will be posted here</p>
+                <p style="font-size: 12px; margin-top: 8px; color: var(--muted);">Check back for candidate announcements, election updates, and local political developments</p>
+            </div>
+        </div>`;
+
+        container.innerHTML = html;
+
+        // Updated timestamp
+        const updatedDate = new Date(data.updated);
+        document.getElementById('updated').textContent = 
+            `Last updated: ${updatedDate.toLocaleString('en-US', { 
+                month: 'short', 
+                day: 'numeric', 
+                year: 'numeric',
+                hour: 'numeric', 
+                minute: '2-digit', 
+                hour12: true 
+            })}`;
+    }
+
+    render();
+    </script>
+</body>
+</html>

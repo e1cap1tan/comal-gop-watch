@@ -2,247 +2,519 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Comal County GOP Watch</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg: #f8fafc;
-            --card: #ffffff;
-            --primary: #dc2626;
-            --secondary: #2563eb;
-            --accent: #1e40af;
-            --text: #1f2937;
-            --muted: #6b7280;
-            --border: #e5e7eb;
-            --success: #059669;
-            --warning: #d97706;
+            --red: #8B1A1A;
+            --red-light: #B22234;
+            --navy: #1B2A4A;
+            --navy-light: #2C3E6B;
+            --cream: #FDF8F0;
+            --cream-dark: #F5EDE0;
+            --gold: #C5993A;
+            --gold-light: #D4AA4F;
+            --white: #FFFFFF;
+            --text: #1a1a1a;
+            --text-muted: #6B7280;
+            --border: #E5DDD0;
+            --success: #2D6A4F;
+            --warning: #B45309;
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: var(--bg);
+            font-family: 'Source Sans 3', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--cream);
             color: var(--text);
-            line-height: 1.6;
+            line-height: 1.7;
         }
 
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-        }
+        h1, h2, h3, h4 { font-family: 'Playfair Display', Georgia, serif; }
 
-        header {
+        /* ── Navigation ── */
+        .top-bar {
+            background: var(--navy);
+            color: rgba(255,255,255,0.8);
+            font-size: 13px;
             text-align: center;
-            padding: 32px 0 40px;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
-            color: white;
-            margin: -20px -20px 24px -20px;
+            padding: 8px 16px;
+            letter-spacing: 0.5px;
         }
 
-        header h1 {
+        nav {
+            background: var(--white);
+            border-bottom: 3px solid var(--red);
+            padding: 0 24px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+
+        nav .nav-inner {
+            max-width: 1240px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 64px;
+        }
+
+        nav .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 22px;
+            font-weight: 800;
+            color: var(--navy);
+        }
+
+        nav .logo span { color: var(--red); }
+
+        nav .nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+        }
+
+        nav .nav-links a {
+            color: var(--navy);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: color 0.2s;
+        }
+
+        nav .nav-links a:hover { color: var(--red); }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: var(--navy);
+            cursor: pointer;
+        }
+
+        /* ── Hero ── */
+        .hero {
+            position: relative;
+            height: 480px;
+            background: linear-gradient(135deg, rgba(27,42,74,0.85), rgba(139,26,26,0.7)),
+                url('https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=1600&q=80') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 80px;
+            background: linear-gradient(transparent, var(--cream));
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            padding: 0 24px;
+        }
+
+        .hero h1 {
+            font-size: 56px;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 16px;
+            text-shadow: 0 2px 12px rgba(0,0,0,0.3);
+        }
+
+        .hero p {
+            font-size: 20px;
+            opacity: 0.95;
+            max-width: 600px;
+            margin: 0 auto 24px;
+        }
+
+        .hero-stars {
             font-size: 28px;
-            font-weight: 700;
+            letter-spacing: 12px;
+            opacity: 0.6;
+        }
+
+        /* ── Container ── */
+        .container {
+            max-width: 1240px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* ── Star Divider ── */
+        .star-divider {
+            text-align: center;
+            margin: 48px 0;
+            color: var(--gold);
+            font-size: 14px;
+            letter-spacing: 8px;
+        }
+
+        .star-divider::before,
+        .star-divider::after {
+            content: '';
+            display: inline-block;
+            width: 80px;
+            height: 1px;
+            background: var(--gold);
+            vertical-align: middle;
+            margin: 0 16px;
+        }
+
+        /* ── Section Headers ── */
+        .section-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-header h2 {
+            font-size: 36px;
+            color: var(--navy);
             margin-bottom: 8px;
         }
 
-        header p {
+        .section-header .subtitle {
+            color: var(--text-muted);
             font-size: 16px;
-            opacity: 0.9;
         }
 
-        .section {
-            background: var(--card);
+        /* ── Upcoming Alert ── */
+        .alert-banner {
+            background: linear-gradient(135deg, var(--red), var(--red-light));
+            color: white;
+            padding: 20px 32px;
             border-radius: 12px;
-            padding: 24px;
-            margin-bottom: 24px;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.08);
-            border-left: 4px solid var(--primary);
-        }
-
-        .section h2 {
-            font-size: 20px;
-            font-weight: 700;
-            margin-bottom: 16px;
-            color: var(--text);
+            margin: -24px auto 48px;
+            max-width: 900px;
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 16px;
+            box-shadow: 0 4px 16px rgba(139,26,26,0.3);
+            position: relative;
+            z-index: 2;
         }
 
-        .section h3 {
-            font-size: 16px;
-            font-weight: 600;
-            margin: 20px 0 12px 0;
-            color: var(--text);
-        }
+        .alert-banner .alert-icon { font-size: 32px; }
+        .alert-banner .alert-text h3 { font-size: 18px; font-family: 'Source Sans 3', sans-serif; font-weight: 700; }
+        .alert-banner .alert-text p { opacity: 0.9; font-size: 14px; }
 
-        .candidate-list {
+        /* ── Cards Grid ── */
+        .cards-grid {
             display: grid;
-            gap: 12px;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
         }
 
-        .candidate {
-            background: #f8fafc;
-            border-radius: 8px;
-            padding: 16px;
-            border-left: 3px solid var(--secondary);
+        .card {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 24px;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+            border: 1px solid var(--border);
+            transition: transform 0.2s, box-shadow 0.2s;
         }
 
-        .candidate.incumbent {
-            border-left-color: var(--success);
-            background: #f0fdf4;
+        .card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 16px rgba(0,0,0,0.1);
         }
 
-        .candidate-name {
-            font-weight: 600;
-            font-size: 16px;
+        /* ── Candidate Cards ── */
+        .candidate-card {
+            text-align: center;
+            position: relative;
         }
 
-        .candidate-status {
-            font-size: 12px;
-            color: var(--muted);
-            margin-top: 4px;
+        .candidate-card .avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--navy-light), var(--navy));
+            margin: 0 auto 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgba(255,255,255,0.5);
+            font-size: 36px;
+        }
+
+        .candidate-card.incumbent .avatar {
+            background: linear-gradient(135deg, var(--gold), var(--gold-light));
+            box-shadow: 0 0 0 3px var(--white), 0 0 0 5px var(--gold);
+        }
+
+        .candidate-card .name {
+            font-family: 'Playfair Display', serif;
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 4px;
+        }
+
+        .candidate-card .status {
+            font-size: 13px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
         .badge {
             display: inline-block;
             font-size: 11px;
-            font-weight: 600;
-            padding: 4px 8px;
-            border-radius: 4px;
-            margin-left: 8px;
+            font-weight: 700;
+            padding: 4px 12px;
+            border-radius: 20px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-top: 8px;
         }
 
-        .badge.incumbent {
-            background: #dcfce7;
-            color: var(--success);
-        }
+        .badge.incumbent { background: #FEF3C7; color: var(--warning); }
+        .badge.deadline { background: #FEE2E2; color: #991B1B; }
+        .badge.new { background: #DBEAFE; color: #1E40AF; }
 
-        .badge.deadline {
-            background: #fed7d7;
-            color: #c53030;
-        }
-
-        .official-list {
+        /* ── Officials Table ── */
+        .officials-section {
             display: grid;
-            gap: 8px;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
         }
 
-        .official {
+        .officials-group {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 28px;
+            border: 1px solid var(--border);
+            box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+        }
+
+        .officials-group h3 {
+            font-size: 20px;
+            color: var(--navy);
+            margin-bottom: 16px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid var(--gold);
+        }
+
+        .official-row {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 12px 0;
-            border-bottom: 1px solid var(--border);
+            padding: 10px 0;
+            border-bottom: 1px solid #f0ebe3;
         }
 
-        .official:last-child {
-            border-bottom: none;
-        }
+        .official-row:last-child { border-bottom: none; }
 
-        .official-title {
-            font-weight: 500;
-            color: var(--text);
-        }
+        .official-row .title { font-weight: 600; color: var(--text); font-size: 14px; }
+        .official-row .name { color: var(--text-muted); font-size: 14px; }
 
-        .official-name {
-            color: var(--muted);
-            font-size: 14px;
+        /* ── Calendar ── */
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 16px;
         }
 
         .calendar-item {
+            background: var(--white);
+            border-radius: 10px;
+            padding: 20px 24px;
+            border: 1px solid var(--border);
             display: flex;
             align-items: center;
-            gap: 16px;
-            padding: 16px;
-            background: #f8fafc;
-            border-radius: 8px;
-            margin-bottom: 12px;
-            border-left: 3px solid var(--secondary);
+            gap: 20px;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.04);
         }
 
         .calendar-item.upcoming {
-            border-left-color: var(--warning);
-            background: #fffbeb;
+            border-left: 4px solid var(--gold);
+            background: linear-gradient(90deg, #FFFBEB, var(--white));
         }
 
-        .calendar-date {
+        .cal-date {
+            font-family: 'Playfair Display', serif;
             font-weight: 700;
-            font-size: 16px;
-            min-width: 80px;
-            color: var(--text);
+            font-size: 15px;
+            color: var(--navy);
+            min-width: 100px;
         }
 
-        .calendar-event {
-            flex: 1;
-            font-weight: 500;
+        .cal-event { font-weight: 500; }
+
+        /* ── Business Section ── */
+        .business-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
         }
 
-        .news-placeholder {
+        .business-column h3 {
+            font-size: 22px;
+            color: var(--navy);
+            margin-bottom: 8px;
+        }
+
+        .business-column .col-desc {
+            font-size: 14px;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+        }
+
+        .business-column.friendly .biz-card { border-left: 4px solid var(--success); }
+        .business-column.watch .biz-card { border-left: 4px solid var(--warning); }
+
+        .biz-card {
+            background: var(--white);
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 12px;
+            border: 1px solid var(--border);
+            box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+        }
+
+        .biz-card .biz-name { font-weight: 700; font-size: 16px; color: var(--navy); }
+        .biz-card .biz-type { font-size: 13px; color: var(--gold); font-weight: 600; text-transform: uppercase; letter-spacing: 0.3px; }
+        .biz-card .biz-location { font-size: 13px; color: var(--text-muted); margin: 4px 0; }
+        .biz-card .biz-note { font-size: 14px; color: var(--text); margin-top: 8px; }
+
+        .biz-empty {
             text-align: center;
-            padding: 40px;
-            color: var(--muted);
-            background: #f8fafc;
-            border-radius: 8px;
+            padding: 40px 20px;
+            color: var(--text-muted);
+            background: var(--cream-dark);
+            border-radius: 10px;
             border: 2px dashed var(--border);
         }
 
-        .updated {
+        /* ── News ── */
+        .news-placeholder {
             text-align: center;
-            font-size: 12px;
-            color: var(--muted);
-            padding: 32px 0 16px;
+            padding: 60px 24px;
+            color: var(--text-muted);
+            background: var(--white);
+            border-radius: 12px;
+            border: 2px dashed var(--border);
         }
 
-        @media (max-width: 640px) {
-            .container {
-                padding: 16px;
-            }
-            
-            header {
-                margin: -16px -16px 20px -16px;
-                padding: 24px 16px 32px;
-            }
-            
-            header h1 {
-                font-size: 24px;
-            }
-            
-            .section {
-                padding: 20px;
-            }
-            
-            .calendar-item {
+        .news-placeholder .icon { font-size: 40px; margin-bottom: 12px; }
+
+        /* ── Footer ── */
+        footer {
+            background: var(--navy);
+            color: rgba(255,255,255,0.7);
+            text-align: center;
+            padding: 40px 24px;
+            margin-top: 64px;
+        }
+
+        footer .footer-brand {
+            font-family: 'Playfair Display', serif;
+            font-size: 20px;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 8px;
+        }
+
+        footer p { font-size: 14px; }
+
+        /* ── Responsive ── */
+        @media (max-width: 900px) {
+            nav .nav-links { display: none; }
+            .mobile-menu-btn { display: block; }
+            nav .nav-links.open {
+                display: flex;
                 flex-direction: column;
-                align-items: flex-start;
-                gap: 8px;
+                position: absolute;
+                top: 64px;
+                left: 0;
+                right: 0;
+                background: var(--white);
+                padding: 16px 24px;
+                gap: 16px;
+                border-bottom: 3px solid var(--red);
+                box-shadow: 0 4px 12px rgba(0,0,0,0.1);
             }
-            
-            .calendar-date {
-                min-width: auto;
-            }
+            .hero { height: 360px; }
+            .hero h1 { font-size: 36px; }
+            .hero p { font-size: 16px; }
+            .officials-section { grid-template-columns: 1fr; }
+            .business-section { grid-template-columns: 1fr; }
+            .alert-banner { flex-direction: column; text-align: center; margin: -16px 16px 40px; }
+            .section-header h2 { font-size: 28px; }
+        }
+
+        @media (max-width: 480px) {
+            .hero { height: 300px; }
+            .hero h1 { font-size: 28px; }
+            .cards-grid { grid-template-columns: 1fr; }
+            .calendar-grid { grid-template-columns: 1fr; }
+            .star-divider::before, .star-divider::after { width: 40px; }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>🇺🇸 Comal County GOP Watch</h1>
-            <p>Your source for New Braunfels and Comal County Republican politics</p>
-        </header>
+    <div class="top-bar">Comal County, Texas — Keeping Conservative Values Strong</div>
 
-        <div id="content"></div>
+    <nav>
+        <div class="nav-inner">
+            <div class="logo">Comal <span>GOP</span> Watch</div>
+            <button class="mobile-menu-btn" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
+            <ul class="nav-links">
+                <li><a href="#elections">Elections</a></li>
+                <li><a href="#mayor">Mayor Race</a></li>
+                <li><a href="#officials">Officials</a></li>
+                <li><a href="#businesses">Businesses</a></li>
+                <li><a href="#calendar">Calendar</a></li>
+                <li><a href="#news">News</a></li>
+            </ul>
+        </div>
+    </nav>
 
-        <div class="updated" id="updated"></div>
+    <div class="hero">
+        <div class="hero-content">
+            <div class="hero-stars">★ ★ ★</div>
+            <h1>Comal County GOP Watch</h1>
+            <p>Your source for New Braunfels &amp; Comal County Republican politics</p>
+            <div class="hero-stars">★ ★ ★</div>
+        </div>
     </div>
 
+    <div class="container">
+        <div id="alert-banner"></div>
+        <div id="content"></div>
+    </div>
+
+    <footer>
+        <div class="footer-brand">★ Comal County GOP Watch ★</div>
+        <p id="updated"></p>
+        <p style="margin-top: 8px;">Keeping our community informed and our values strong.</p>
+    </footer>
+
     <script>
-    // POLITICAL DATA — Updated automatically
+    // ════════════════════════════════════════════
+    // POLITICAL DATA — Edit this object to update content
+    // ════════════════════════════════════════════
     const POLITICAL_DATA = {
         updated: "2026-02-10T09:30:00-06:00",
-        
+
         mayoral_candidates: [
             { name: "Neal Linnartz", status: "Incumbent", incumbent: true },
             { name: "Michael French", status: "Candidate", incumbent: false },
@@ -250,29 +522,29 @@
             { name: "Angela Allen", status: "Candidate", incumbent: false },
             { name: "Jonathon Frazier", status: "Candidate", incumbent: false }
         ],
-        
+
         city_council: {
             district_5: [],
             district_6: []
         },
-        
+
         current_officials: [
-            { title: "Mayor", name: "Neal Linnartz", term: "2023-2026" },
-            { title: "City Council District 1", name: "TBD", term: "" },
-            { title: "City Council District 2", name: "TBD", term: "" },
-            { title: "City Council District 3", name: "TBD", term: "" },
-            { title: "City Council District 4", name: "TBD", term: "" },
-            { title: "City Council District 5", name: "TBD", term: "Up for election 2026" },
-            { title: "City Council District 6", name: "TBD", term: "Up for election 2026" },
-            { title: "County Judge", name: "TBD", term: "" },
-            { title: "Commissioner Pct 1", name: "TBD", term: "" },
-            { title: "Commissioner Pct 2", name: "TBD", term: "" },
-            { title: "Commissioner Pct 3", name: "TBD", term: "" },
-            { title: "Commissioner Pct 4", name: "TBD", term: "" },
-            { title: "State Rep District 73", name: "TBD", term: "" },
-            { title: "State Senator District 25", name: "TBD", term: "" }
+            { title: "Mayor", name: "Neal Linnartz", term: "2023-2026", group: "city" },
+            { title: "City Council District 1", name: "TBD", term: "", group: "city" },
+            { title: "City Council District 2", name: "TBD", term: "", group: "city" },
+            { title: "City Council District 3", name: "TBD", term: "", group: "city" },
+            { title: "City Council District 4", name: "TBD", term: "", group: "city" },
+            { title: "City Council District 5", name: "TBD", term: "Up for election 2026", group: "city" },
+            { title: "City Council District 6", name: "TBD", term: "Up for election 2026", group: "city" },
+            { title: "County Judge", name: "TBD", term: "", group: "county" },
+            { title: "Commissioner Pct 1", name: "TBD", term: "", group: "county" },
+            { title: "Commissioner Pct 2", name: "TBD", term: "", group: "county" },
+            { title: "Commissioner Pct 3", name: "TBD", term: "", group: "county" },
+            { title: "Commissioner Pct 4", name: "TBD", term: "", group: "county" },
+            { title: "State Rep District 73", name: "TBD", term: "", group: "state" },
+            { title: "State Senator District 25", name: "TBD", term: "", group: "state" }
         ],
-        
+
         election_calendar: [
             { date: "Feb 13, 2026", event: "NB City Council filing deadline", upcoming: true },
             { date: "Feb 18-27", event: "Early voting (TX Primary)", upcoming: false },
@@ -283,120 +555,215 @@
         ]
     };
 
-    function isUpcoming(dateStr) {
-        const today = new Date();
-        const eventDate = new Date(dateStr.replace(/(\d{4})/, '$1') + ' 23:59:59');
-        const daysUntil = Math.ceil((eventDate - today) / (1000 * 60 * 60 * 24));
-        return daysUntil >= 0 && daysUntil <= 30;
-    }
+    // ════════════════════════════════════════════
+    // BUSINESS DATA — Edit this object to update businesses
+    // ════════════════════════════════════════════
+    const BUSINESS_DATA = {
+        friendly: [
+            // { name: "Example Business", type: "Restaurant", location: "New Braunfels, TX", note: "Reason for listing" }
+        ],
+        watch: [
+            // { name: "Example Business", type: "Retail", location: "New Braunfels, TX", note: "Reason for listing" }
+        ]
+    };
 
     function render() {
-        const container = document.getElementById('content');
         const data = POLITICAL_DATA;
-        
+        const biz = BUSINESS_DATA;
         let html = '';
 
-        // Upcoming Elections Section
+        // Alert banner
+        const upcomingEvents = data.election_calendar.filter(e => e.upcoming);
+        if (upcomingEvents.length) {
+            document.getElementById('alert-banner').innerHTML = `
+                <div class="alert-banner">
+                    <div class="alert-icon">🗳️</div>
+                    <div class="alert-text">
+                        <h3>Upcoming: ${upcomingEvents[0].event}</h3>
+                        <p>${upcomingEvents[0].date} — Mark your calendars and make your voice heard!</p>
+                    </div>
+                </div>`;
+        }
+
+        // ── Elections Overview ──
         html += `
-        <div class="section">
-            <h2>🗳️ Upcoming Elections</h2>
+        <div id="elections" class="star-divider">★ ★ ★</div>
+        <div class="section-header">
+            <h2>Upcoming Elections</h2>
+            <p class="subtitle">Key dates for Comal County voters</p>
+        </div>
+        <div class="calendar-grid" style="max-width:700px;margin:0 auto 16px;">
             <div class="calendar-item upcoming">
-                <div class="calendar-date">May 2026</div>
-                <div class="calendar-event">New Braunfels Mayor & City Council Elections</div>
+                <div class="cal-date">May 2026</div>
+                <div class="cal-event">New Braunfels Mayor &amp; City Council Elections</div>
             </div>
             <div class="calendar-item">
-                <div class="calendar-date">Mar 3</div>
-                <div class="calendar-event">Texas Republican Primary</div>
+                <div class="cal-date">Mar 3, 2026</div>
+                <div class="cal-event">Texas Republican Primary</div>
             </div>
         </div>`;
 
-        // Mayor Race Section
+        // ── Mayor Race ──
         html += `
-        <div class="section">
-            <h2>👑 Mayor Race</h2>
-            <p style="margin-bottom: 16px; color: var(--muted);">Filing deadline: <strong>February 13, 2026</strong> <span class="badge deadline">3 days left</span></p>
-            <div class="candidate-list">`;
-        
-        data.mayoral_candidates.forEach(candidate => {
-            html += `
-                <div class="candidate ${candidate.incumbent ? 'incumbent' : ''}">
-                    <div class="candidate-name">
-                        ${candidate.name}
-                        ${candidate.incumbent ? '<span class="badge incumbent">Incumbent</span>' : ''}
-                    </div>
-                    <div class="candidate-status">${candidate.status}</div>
-                </div>`;
-        });
-        
-        html += `</div></div>`;
+        <div id="mayor" class="star-divider">★ ★ ★</div>
+        <div class="section-header">
+            <h2>Mayor Race</h2>
+            <p class="subtitle">New Braunfels Mayoral Candidates — Filing deadline: <strong>February 13, 2026</strong></p>
+        </div>
+        <div class="cards-grid">`;
 
-        // City Council Section
-        html += `
-        <div class="section">
-            <h2>🏛️ City Council</h2>
-            <h3>District 5</h3>
-            <p style="color: var(--muted); font-style: italic;">No candidates filed yet</p>
-            <h3>District 6</h3>
-            <p style="color: var(--muted); font-style: italic;">No candidates filed yet</p>
-            <p style="margin-top: 16px; font-size: 14px; color: var(--muted);">Filing deadline: <strong>February 13, 2026</strong></p>
-        </div>`;
-
-        // Current Officials Section
-        html += `
-        <div class="section">
-            <h2>🏢 Current Officials</h2>
-            <div class="official-list">`;
-        
-        data.current_officials.forEach(official => {
+        data.mayoral_candidates.forEach(c => {
             html += `
-                <div class="official">
-                    <div class="official-title">${official.title}</div>
-                    <div class="official-name">${official.name} ${official.term ? '(' + official.term + ')' : ''}</div>
-                </div>`;
+            <div class="card candidate-card ${c.incumbent ? 'incumbent' : ''}">
+                <div class="avatar">
+                    <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M20 21a8 8 0 10-16 0"/></svg>
+                </div>
+                <div class="name">${c.name}</div>
+                <div class="status">${c.status}</div>
+                ${c.incumbent ? '<span class="badge incumbent">★ Incumbent</span>' : ''}
+            </div>`;
         });
-        
-        html += `</div></div>`;
 
-        // Election Calendar Section
-        html += `
-        <div class="section">
-            <h2>📅 Election Calendar</h2>`;
-        
-        data.election_calendar.forEach(item => {
-            const upcoming = item.date.includes('Feb') || item.upcoming;
-            html += `
-                <div class="calendar-item ${upcoming ? 'upcoming' : ''}">
-                    <div class="calendar-date">${item.date}</div>
-                    <div class="calendar-event">${item.event}</div>
-                </div>`;
-        });
-        
         html += `</div>`;
 
-        // Local News Section
+        // ── City Council ──
         html += `
-        <div class="section">
-            <h2>📰 Local News</h2>
-            <div class="news-placeholder">
-                <div style="font-size: 24px; margin-bottom: 12px;">📰</div>
-                <p>Local political news and updates will be posted here</p>
-                <p style="font-size: 12px; margin-top: 8px; color: var(--muted);">Check back for candidate announcements, election updates, and local political developments</p>
-            </div>
+        <div class="star-divider">★ ★ ★</div>
+        <div class="section-header">
+            <h2>City Council Races</h2>
+            <p class="subtitle">Districts 5 &amp; 6 — Filing deadline: February 13, 2026</p>
+        </div>
+        <div class="officials-section">
+            <div class="officials-group">
+                <h3>District 5</h3>`;
+
+        if (data.city_council.district_5.length === 0) {
+            html += `<p style="color:var(--text-muted);font-style:italic;padding:16px 0;">No candidates filed yet</p>`;
+        } else {
+            data.city_council.district_5.forEach(c => {
+                html += `<div class="official-row"><span class="title">${c.name}</span><span class="name">${c.status}</span></div>`;
+            });
+        }
+
+        html += `</div><div class="officials-group"><h3>District 6</h3>`;
+
+        if (data.city_council.district_6.length === 0) {
+            html += `<p style="color:var(--text-muted);font-style:italic;padding:16px 0;">No candidates filed yet</p>`;
+        } else {
+            data.city_council.district_6.forEach(c => {
+                html += `<div class="official-row"><span class="title">${c.name}</span><span class="name">${c.status}</span></div>`;
+            });
+        }
+
+        html += `</div></div>`;
+
+        // ── Current Officials ──
+        html += `
+        <div id="officials" class="star-divider">★ ★ ★</div>
+        <div class="section-header">
+            <h2>Current Officials</h2>
+            <p class="subtitle">Elected representatives serving Comal County</p>
+        </div>
+        <div class="officials-section" style="grid-template-columns:1fr 1fr;">`;
+
+        const city = data.current_officials.filter(o => (o.group || 'city') === 'city');
+        const countyState = data.current_officials.filter(o => o.group === 'county' || o.group === 'state');
+
+        html += `<div class="officials-group"><h3>City of New Braunfels</h3>`;
+        city.forEach(o => {
+            html += `<div class="official-row"><span class="title">${o.title}</span><span class="name">${o.name}${o.term ? ' (' + o.term + ')' : ''}</span></div>`;
+        });
+        html += `</div>`;
+
+        html += `<div class="officials-group"><h3>County &amp; State</h3>`;
+        countyState.forEach(o => {
+            html += `<div class="official-row"><span class="title">${o.title}</span><span class="name">${o.name}${o.term ? ' (' + o.term + ')' : ''}</span></div>`;
+        });
+        html += `</div></div>`;
+
+        // ── Local Businesses ──
+        html += `
+        <div id="businesses" class="star-divider">★ ★ ★</div>
+        <div class="section-header">
+            <h2>Local Businesses</h2>
+            <p class="subtitle">Know where your dollars go — support businesses that share our values</p>
+        </div>
+        <div class="business-section">
+            <div class="business-column friendly">
+                <h3>🤝 Conservative-Friendly</h3>
+                <p class="col-desc">Businesses that support conservative values, Republican causes, and our community.</p>`;
+
+        if (biz.friendly.length === 0) {
+            html += `<div class="biz-empty"><p>Listings coming soon</p><p style="font-size:13px;margin-top:4px;">Know a business? Let us know!</p></div>`;
+        } else {
+            biz.friendly.forEach(b => {
+                html += `<div class="biz-card">
+                    <div class="biz-type">${b.type}</div>
+                    <div class="biz-name">${b.name}</div>
+                    <div class="biz-location">📍 ${b.location}</div>
+                    ${b.note ? '<div class="biz-note">' + b.note + '</div>' : ''}
+                </div>`;
+            });
+        }
+
+        html += `</div><div class="business-column watch">
+            <h3>👁️ Businesses to Watch</h3>
+            <p class="col-desc">Businesses that have publicly supported policies or causes contrary to our conservative values.</p>`;
+
+        if (biz.watch.length === 0) {
+            html += `<div class="biz-empty"><p>No listings yet</p><p style="font-size:13px;margin-top:4px;">Have information? Reach out to us.</p></div>`;
+        } else {
+            biz.watch.forEach(b => {
+                html += `<div class="biz-card">
+                    <div class="biz-type">${b.type}</div>
+                    <div class="biz-name">${b.name}</div>
+                    <div class="biz-location">📍 ${b.location}</div>
+                    ${b.note ? '<div class="biz-note">' + b.note + '</div>' : ''}
+                </div>`;
+            });
+        }
+
+        html += `</div></div>`;
+
+        // ── Election Calendar ──
+        html += `
+        <div id="calendar" class="star-divider">★ ★ ★</div>
+        <div class="section-header">
+            <h2>Election Calendar</h2>
+            <p class="subtitle">Important dates for the 2026 election cycle</p>
+        </div>
+        <div class="calendar-grid">`;
+
+        data.election_calendar.forEach(item => {
+            const upcoming = item.upcoming || (item.date.includes('Feb'));
+            html += `
+            <div class="calendar-item ${upcoming ? 'upcoming' : ''}">
+                <div class="cal-date">${item.date}</div>
+                <div class="cal-event">${item.event}</div>
+            </div>`;
+        });
+
+        html += `</div>`;
+
+        // ── News ──
+        html += `
+        <div id="news" class="star-divider">★ ★ ★</div>
+        <div class="section-header">
+            <h2>Local Political News</h2>
+            <p class="subtitle">Updates, announcements, and developments</p>
+        </div>
+        <div class="news-placeholder">
+            <div class="icon">📰</div>
+            <p style="font-size:18px;font-weight:600;margin-bottom:8px;">News &amp; Updates Coming Soon</p>
+            <p>Candidate announcements, election updates, and local political developments will be posted here.</p>
         </div>`;
 
-        container.innerHTML = html;
+        document.getElementById('content').innerHTML = html;
 
         // Updated timestamp
-        const updatedDate = new Date(data.updated);
-        document.getElementById('updated').textContent = 
-            `Last updated: ${updatedDate.toLocaleString('en-US', { 
-                month: 'short', 
-                day: 'numeric', 
-                year: 'numeric',
-                hour: 'numeric', 
-                minute: '2-digit', 
-                hour12: true 
-            })}`;
+        const d = new Date(data.updated);
+        document.getElementById('updated').textContent =
+            'Last updated: ' + d.toLocaleString('en-US', { month: 'short', day: 'numeric', year: 'numeric', hour: 'numeric', minute: '2-digit', hour12: true });
     }
 
     render();

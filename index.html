@@ -332,15 +332,26 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 10px 0;
+            padding: 10px 12px;
             border-bottom: 1px solid #f0ebe3;
             gap: 10px;
+            text-decoration: none;
+            color: inherit;
+            border-radius: 8px;
+            margin: 0 -12px;
+            transition: background 0.2s ease, box-shadow 0.2s ease;
+            cursor: pointer;
+        }
+
+        .official-row:hover {
+            background: rgba(178, 134, 50, 0.08);
+            box-shadow: 0 1px 4px rgba(0,0,0,0.06);
         }
 
         .official-row:last-child { border-bottom: none; }
 
-        .official-row .title { font-weight: 600; color: var(--text); font-size: 14px; }
-        .official-row .name { color: var(--text-muted); font-size: 14px; }
+        .official-row .name { font-weight: 600; color: var(--text); font-size: 14px; }
+        .official-row .title { color: var(--text-muted); font-size: 14px; text-align: right; }
 
         /* ── Calendar ── */
         .calendar-grid {
@@ -692,7 +703,7 @@
         city.forEach(o => {
             const photoHtml = o.photo ? `<img class="official-photo" src="${o.photo}" alt="${o.name}" loading="lazy">` : '';
             const cityLink = o.name.includes('†') ? 'profiles/county-judge.html' : 'profiles/' + o.name.replace(/\(R\)/g,'').trim().toLowerCase().replace(/\./g, '').replace(/\s+/g, '-') + '.html';
-            html += `<div class="official-row">${photoHtml}<span class="title">${o.title}</span><span class="name"><a href="${cityLink}" style="color:var(--text-muted);text-decoration:none;">${o.name}${o.term ? ' (' + o.term + ')' : ''}</a></span></div>`;
+            html += `<a href="${cityLink}" class="official-row">${photoHtml}<span class="name">${o.name}</span><span class="title">${o.title}${o.term ? ' (' + o.term + ')' : ''}</span></a>`;
         });
         html += `</div>`;
 
@@ -700,7 +711,7 @@
         countyState.forEach(o => {
             const photoHtml = o.photo ? `<img class="official-photo" src="${o.photo}" alt="${o.name}" loading="lazy">` : '';
             const csLink = o.name.includes('†') ? 'profiles/county-judge.html' : 'profiles/' + o.name.replace(/\(R\)/g,'').trim().toLowerCase().replace(/\./g, '').replace(/\s+/g, '-') + '.html';
-            html += `<div class="official-row">${photoHtml}<span class="title">${o.title}</span><span class="name"><a href="${csLink}" style="color:var(--text-muted);text-decoration:none;">${o.name}${o.term ? ' (' + o.term + ')' : ''}</a></span></div>`;
+            html += `<a href="${csLink}" class="official-row">${photoHtml}<span class="name">${o.name}</span><span class="title">${o.title}${o.term ? ' (' + o.term + ')' : ''}</span></a>`;
         });
         html += `</div></div>`;
 

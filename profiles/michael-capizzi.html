@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Michael Capizzi — Comal County GOP Watch</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --red: #8B1A1A; --red-light: #B22234; --navy: #1B2A4A; --navy-light: #2C3E6B;
+            --cream: #FDF8F0; --cream-dark: #F5EDE0; --gold: #C5993A; --gold-light: #D4AA4F;
+            --white: #FFFFFF; --text: #1a1a1a; --text-muted: #6B7280; --border: #E5DDD0;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Source Sans 3', -apple-system, sans-serif; background: var(--cream); color: var(--text); line-height: 1.7; }
+        h1, h2, h3, h4 { font-family: 'Playfair Display', Georgia, serif; }
+        .top-bar { background: var(--navy); color: rgba(255,255,255,0.8); font-size: 13px; text-align: center; padding: 8px 16px; letter-spacing: 0.5px; }
+        nav { background: var(--white); border-bottom: 3px solid var(--red); padding: 0 24px; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+        nav .nav-inner { max-width: 1240px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 64px; }
+        nav .logo { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 800; color: var(--navy); text-decoration: none; }
+        nav .logo span { color: var(--red); }
+        nav .nav-links { display: flex; gap: 32px; list-style: none; }
+        nav .nav-links a { color: var(--navy); text-decoration: none; font-weight: 600; font-size: 14px; text-transform: uppercase; letter-spacing: 0.5px; transition: color 0.2s; }
+        nav .nav-links a:hover { color: var(--red); }
+        .mobile-menu-btn { display: none; background: none; border: none; font-size: 24px; color: var(--navy); cursor: pointer; }
+        .container { max-width: 900px; margin: 0 auto; padding: 40px 24px; }
+        .back-link { display: inline-flex; align-items: center; gap: 8px; color: var(--navy); text-decoration: none; font-weight: 600; font-size: 14px; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 32px; transition: color 0.2s; }
+        .back-link:hover { color: var(--red); }
+        .profile-header { display: flex; gap: 32px; align-items: flex-start; margin-bottom: 40px; }
+        .profile-photo { width: 160px; height: 160px; border-radius: 12px; overflow: hidden; flex-shrink: 0; background: linear-gradient(135deg, var(--navy-light), var(--navy)); display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.4); box-shadow: 0 4px 16px rgba(0,0,0,0.12); }
+        .profile-photo img { width: 100%; height: 100%; object-fit: cover; }
+        .avatar-placeholder { color: rgba(255,255,255,0.4); }
+        .profile-info h1 { font-size: 36px; color: var(--navy); margin-bottom: 4px; }
+        .profile-info .title { font-size: 18px; color: var(--gold); font-weight: 600; margin-bottom: 12px; }
+        .profile-info .details { font-size: 14px; color: var(--text-muted); line-height: 2; }
+        .section { background: var(--white); border-radius: 12px; padding: 28px; margin-bottom: 20px; border: 1px solid var(--border); box-shadow: 0 1px 4px rgba(0,0,0,0.06); }
+        .section h2 { font-size: 22px; color: var(--navy); margin-bottom: 16px; padding-bottom: 12px; border-bottom: 2px solid var(--gold); }
+        .section p { color: var(--text); }
+        .section a { color: var(--red); font-weight: 600; }
+        .section a:hover { text-decoration: underline; }
+        .placeholder { color: var(--text-muted); font-style: italic; }
+        footer { background: var(--navy); color: rgba(255,255,255,0.7); text-align: center; padding: 40px 24px; margin-top: 64px; }
+        footer .footer-brand { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 700; color: white; margin-bottom: 8px; }
+        footer p { font-size: 14px; }
+        @media (max-width: 900px) {
+            nav .nav-links { display: none; }
+            .mobile-menu-btn { display: block; }
+            nav .nav-links.open { display: flex; flex-direction: column; position: absolute; top: 64px; left: 0; right: 0; background: var(--white); padding: 16px 24px; gap: 16px; border-bottom: 3px solid var(--red); box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+            .profile-header { flex-direction: column; align-items: center; text-align: center; }
+            .profile-info h1 { font-size: 28px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="top-bar">Comal County, Texas — Keeping Conservative Values Strong</div>
+    <nav>
+        <div class="nav-inner">
+            <a href="../index.html" class="logo">Comal <span>GOP</span> Watch</a>
+            <button class="mobile-menu-btn" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
+            <ul class="nav-links">
+                <li><a href="../index.html#elections">Elections</a></li>
+                <li><a href="../index.html#mayor">Mayor Race</a></li>
+                <li><a href="../index.html#officials">Officials</a></li>
+                <li><a href="../index.html#businesses">Businesses</a></li>
+                <li><a href="../index.html#calendar">Calendar</a></li>
+                <li><a href="../index.html#news">News</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container">
+        <a href="../index.html" class="back-link">← Back to Home</a>
+        <div class="profile-header">
+            <div class="profile-photo"><img src="../images/michael-capizzi.jpg" alt="Michael Capizzi"></div>
+            <div class="profile-info">
+                <h1>Michael Capizzi</h1>
+                <div class="title">City Council — District 2</div>
+                <div class="details">Party: Republican<br>Office: New Braunfels City Council, District 2<br>Term: 2025–2028</div>
+            </div>
+        </div>
+        <div class="section">
+            <h2>Biography</h2>
+            <p>Michael Capizzi serves on the New Braunfels City Council representing District 2. Bio coming soon.</p>
+        </div>
+        <div class="section">
+            <h2>Contact &amp; Official Links</h2>
+            <a href="https://www.newbraunfels.gov/298/City-Council" target="_blank" rel="noopener">New Braunfels City Council — Official Page</a>
+        </div>
+        <div class="section">
+            <h2>Voting Record &amp; Positions</h2>
+            <p class="placeholder">Voting record and policy positions coming soon.</p>
+        </div>
+        <div class="section">
+            <h2>News Mentions</h2>
+            <p class="placeholder">News coverage and media mentions coming soon.</p>
+        </div>
+    </div>
+    <footer>
+        <div class="footer-brand">★ Comal County GOP Watch ★</div>
+        <p>Keeping our community informed and our values strong.</p>
+    </footer>
+</body>
+</html>

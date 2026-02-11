@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Candidate &amp; Official News — Comal County GOP Watch</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/shared.css">
+    <style>
+        /* ── Page Header ── */
+        .page-header {
+            background: linear-gradient(135deg, var(--navy), var(--navy-light));
+            color: white;
+            padding: 48px 24px 40px;
+            text-align: center;
+        }
+
+        .page-header h1 {
+            font-size: 36px;
+            margin-bottom: 8px;
+        }
+
+        .page-header p {
+            color: rgba(255,255,255,0.8);
+            font-size: 16px;
+        }
+
+        /* ── Breadcrumb ── */
+        .breadcrumb {
+            padding: 16px 24px;
+            font-size: 14px;
+            color: var(--text-muted);
+            max-width: 1240px;
+            margin: 0 auto;
+        }
+
+        .breadcrumb a {
+            color: var(--red);
+            font-weight: 600;
+        }
+
+        /* ── Filter Bar ── */
+        .filter-bar {
+            max-width: 1240px;
+            margin: 0 auto 24px;
+            padding: 0 24px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .filter-btn {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 6px 16px;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--navy);
+            cursor: pointer;
+            transition: all 0.2s;
+            font-family: 'Source Sans 3', sans-serif;
+        }
+
+        .filter-btn:hover {
+            border-color: var(--red);
+            color: var(--red);
+        }
+
+        .filter-btn.active {
+            background: var(--red);
+            color: var(--white);
+            border-color: var(--red);
+        }
+
+        /* ── Feed Container ── */
+        .feed-container {
+            max-width: 1240px;
+            margin: 0 auto;
+            padding: 0 24px 64px;
+        }
+
+        .feed-container .no-results {
+            text-align: center;
+            padding: 48px 24px;
+            color: var(--text-muted);
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div id="site-nav"></div>
+
+    <div class="page-header">
+        <h1>Candidate &amp; Official News</h1>
+        <p>Latest updates on candidates, elected officials, and political activity in Comal County</p>
+    </div>
+
+    <div class="breadcrumb">
+        <a href="/">← Back to Home</a>
+    </div>
+
+    <div class="filter-bar" id="filter-bar"></div>
+
+    <div class="feed-container" id="feed-container">
+        <p class="no-results">Loading…</p>
+    </div>
+
+    <div id="site-footer"></div>
+
+    <script src="/js/utils.js"></script>
+    <script src="/js/feed-renderer.js"></script>
+    <script src="/js/layout.js"></script>
+    <script>
+        (function () {
+            'use strict';
+
+            var feedContainer = document.getElementById('feed-container');
+            var filterBar = document.getElementById('filter-bar');
+            var allEntries = [];
+            var activeCategory = 'all';
+
+            function getUniqueCategories(entries) {
+                var cats = {};
+                entries.forEach(function (e) {
+                    if (e.category) cats[e.category] = true;
+                });
+                return Object.keys(cats).sort();
+            }
+
+            function renderFilterButtons(categories) {
+                var html = '<button class="filter-btn active" data-category="all">All</button>';
+                categories.forEach(function (cat) {
+                    html += '<button class="filter-btn" data-category="' + cat + '">' + formatCategory(cat) + '</button>';
+                });
+                filterBar.innerHTML = html;
+            }
+
+            function applyFilter(category) {
+                activeCategory = category;
+
+                // Update button states
+                var buttons = filterBar.querySelectorAll('.filter-btn');
+                buttons.forEach(function (btn) {
+                    btn.classList.toggle('active', btn.getAttribute('data-category') === category);
+                });
+
+                // Filter entries
+                var filtered = category === 'all'
+                    ? allEntries
+                    : allEntries.filter(function (e) { return e.category === category; });
+
+                if (filtered.length === 0) {
+                    feedContainer.innerHTML = '<p class="no-results">No entries found for this category.</p>';
+                } else {
+                    renderFeedList(filtered, feedContainer);
+                }
+            }
+
+            // Event delegation for filter buttons
+            filterBar.addEventListener('click', function (e) {
+                var btn = e.target.closest('.filter-btn');
+                if (!btn) return;
+                applyFilter(btn.getAttribute('data-category'));
+            });
+
+            // Fetch and render
+            fetchFeed('/data/candidate-news.json').then(function (entries) {
+                allEntries = entries;
+                var categories = getUniqueCategories(entries);
+                renderFilterButtons(categories);
+                applyFilter('all');
+            }).catch(function (err) {
+                feedContainer.innerHTML = '<p class="no-results">Failed to load feed data.</p>';
+                console.error(err);
+            });
+        })();
+    </script>
+</body>
+</html>

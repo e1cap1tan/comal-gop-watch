@@ -139,3 +139,12 @@ Started: 2026-02-11
 - Files changed: scripts/add-entry.js, scripts/README.md, test/add-entry.test.js
 - **Learnings:** Using options object with rootDir/now for dependency injection makes CLI scripts very testable
 ---
+
+## 2026-02-11 16:10 - US-011: Mobile responsive polish and cross-page navigation testing
+- Added overflow-x: hidden, overflow-wrap: break-word, img max-width: 100% to shared.css
+- Added 480px breakpoint refinements (tighter padding, smaller feed entry titles)
+- Created test/navigation.test.js with 53 tests: internal link validation across all HTML files, View All links, back navigation, officials-to-profiles mapping, mobile menu presence, CSS overflow prevention, viewport meta tags
+- All 376 tests pass (53 new + 323 existing)
+- Files changed: css/shared.css, test/navigation.test.js
+- **Learnings:** findHtmlFiles recursive walker + href regex extraction is a clean pattern for static site link validation
+---

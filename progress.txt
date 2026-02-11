@@ -103,3 +103,15 @@ Started: 2026-02-11
 - Files changed: feeds/policy.html, test/policy-feed.test.js
 - **Learnings:** Feed page pattern is fully reusable — just change title, description, and JSON path
 ---
+
+## 2026-02-11 15:47 - US-008: Create business watch feed page
+- Created feeds/business.html following established feed page pattern
+- Page header: "Business Watch" with navy gradient
+- Fetches data/business-watch.json, renders via renderFeedList newest-first
+- Dynamic category filter buttons with event delegation
+- Shared nav/footer via layout.js
+- Created test/business-feed.test.js with 22 tests (page structure, filtering logic, responsiveness)
+- All 152 tests pass (22 new + 130 existing)
+- Files changed: feeds/business.html, test/business-feed.test.js
+- **Learnings:** Pattern fully confirmed — all three feed pages are structurally identical
+---

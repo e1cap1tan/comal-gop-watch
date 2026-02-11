@@ -4,6 +4,8 @@ Task: Rebuild Comal County GOP Watch into multi-page political intelligence hub
 Started: 2026-02-11
 
 ## Codebase Patterns
+- layout.js uses IIFE pattern; exports via module.exports for Node, auto-inits in browser via DOMContentLoaded
+- Pages include `<div id="site-nav"></div>` and `<div id="site-footer"></div>` + `<script src="/js/layout.js"></script>`
 - Feed JSON files use ID prefixes: cn- (candidate), pf- (policy), bw- (business)
 - officials.json has slugs for URL-safe linking to bio pages
 - Data files live in data/ directory, validated by test/validate-json.test.js
@@ -36,4 +38,28 @@ Started: 2026-02-11
 - All 29 tests passing
 - Files changed: data/*.json, data/schema.md, test/validate-json.test.js
 - **Learnings:** officials.json includes election_calendar too; slugs added for future bio page linking
+---
+
+## 2026-02-11 13:27 - US-003: Build feed renderer JS module
+- Created js/feed-renderer.js with fetchFeed, renderFeedCard, renderFeedList, renderFeedPreview
+- All functions sort entries newest-first; render functions return HTML and optionally set container.innerHTML
+- renderFeedPreview accepts limit param (default 3) and viewAllUrl for "View All" link
+- Includes escapeHtml for XSS prevention, formatCategory for slug-to-label conversion
+- Created test/feed-renderer.test.js with 18 tests across 6 suites
+- All 47 tests pass (18 new + 29 existing)
+- Files changed: js/feed-renderer.js, test/feed-renderer.test.js
+- **Learnings:** feed-renderer uses inline formatDate fallback when utils.js isn't loaded (Node test env)
+---
+
+## 2026-02-11 13:33 - US-004: Create shared HTML layout components (nav and footer partials)
+- Created js/layout.js with renderNav, renderFooter, initMobileMenu, initLayout
+- Nav links: Home (/), Candidates (/feeds/candidates.html), Policy (/feeds/policy.html), Business Watch (/feeds/business.html)
+- Mobile hamburger menu toggles .open class on nav-links
+- Footer includes branding, copyright year, last-updated date
+- Auto-injects into #site-nav and #site-footer on DOMContentLoaded
+- Created test/layout.test.js with 13 tests (nav links, footer content, NAV_LINKS export)
+- Created test/layout-test.html for visual browser testing
+- All 60 tests pass (13 new + 47 existing)
+- Files changed: js/layout.js, test/layout.test.js, test/layout-test.html
+- **Learnings:** IIFE pattern works well for browser global + Node CJS dual export
 ---

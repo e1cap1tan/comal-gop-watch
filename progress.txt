@@ -63,3 +63,18 @@ Started: 2026-02-11
 - Files changed: js/layout.js, test/layout.test.js, test/layout-test.html
 - **Learnings:** IIFE pattern works well for browser global + Node CJS dual export
 ---
+
+## 2026-02-11 13:50 - US-005: Redesign homepage with three feed preview sections
+- Rewrote index.html: removed 300+ lines of inline CSS, linked css/shared.css
+- Added site-nav/site-footer placeholders for layout.js injection
+- Three feed preview sections: Candidate News, Public Policy, Business Watch
+- Each section uses fetchFeed + renderFeedPreview (3 entries, View All link)
+- Officials grid now reads from data/officials.json (uses slug for profile links)
+- Election calendar and alert banner render from officials.json data
+- Loads js/utils.js, js/feed-renderer.js, js/layout.js
+- Page-specific styles (hero, calendar, officials, alert) remain inline
+- Created test/homepage.test.js with 26 tests covering all acceptance criteria
+- All 86 tests pass (26 new + 60 existing)
+- Files changed: index.html, test/homepage.test.js
+- **Learnings:** Keep page-specific styles inline but move shared styles to shared.css; officials.json slug field makes profile linking clean
+---

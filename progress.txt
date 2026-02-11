@@ -126,3 +126,16 @@ Started: 2026-02-11
 - Files changed: js/profile-feed.js, test/profile-feed.test.js, all 18 profiles/*.html
 - **Learnings:** Python script approach works well for bulk-updating similar HTML files; data attributes on <body> are cleaner than parsing title text
 ---
+
+## 2026-02-11 15:57 - US-010: Create content pipeline script and documentation
+- Created scripts/add-entry.js — Node.js CLI to add entries to any feed JSON file
+- Supports --feed, --title, --summary, --source, --sourceUrl, --category, --tags, --relatedCandidate, --imageUrl
+- Auto-generates timestamp-based slug ID and current ISO date
+- Validates required fields and category against taxonomy before writing
+- Prepends entries (newest first) to the correct JSON file
+- Created scripts/README.md with full usage docs, examples, and category/tags taxonomy reference
+- Created test/add-entry.test.js with 29 tests (slugify, parseArgs, validateEntry, addEntry, CLI execution)
+- All 323 tests pass (29 new + 294 existing)
+- Files changed: scripts/add-entry.js, scripts/README.md, test/add-entry.test.js
+- **Learnings:** Using options object with rootDir/now for dependency injection makes CLI scripts very testable
+---

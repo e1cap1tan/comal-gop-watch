@@ -7,7 +7,11 @@
     "source": "Herald-Zeitung",
     "sourceUrl": "https://herald-zeitung.com",
     "category": "county-government",
-    "tags": ["county-judge", "vacancy", "commissioners-court"]
+    "tags": [
+      "county-judge",
+      "vacancy",
+      "commissioners-court"
+    ]
   },
   {
     "id": "cn-002",
@@ -17,7 +21,11 @@
     "source": "Herald-Zeitung",
     "sourceUrl": "https://herald-zeitung.com",
     "category": "elections",
-    "tags": ["mayor", "new-braunfels", "2026-election"],
+    "tags": [
+      "mayor",
+      "new-braunfels",
+      "2026-election"
+    ],
     "relatedCandidate": "neal-linnartz"
   },
   {
@@ -28,7 +36,11 @@
     "source": "Texas Tribune",
     "sourceUrl": "https://texastribune.org",
     "category": "legislation",
-    "tags": ["state-legislature", "transportation", "i-35"],
+    "tags": [
+      "state-legislature",
+      "transportation",
+      "i-35"
+    ],
     "relatedCandidate": "carrie-isaac"
   }
 ]

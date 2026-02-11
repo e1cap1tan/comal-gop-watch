@@ -23,14 +23,22 @@
 /* ── Reset & Base ── */
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
+html, body {
+    overflow-x: hidden;
+}
+
 body {
     font-family: 'Source Sans 3', -apple-system, BlinkMacSystemFont, sans-serif;
     background: var(--cream);
     color: var(--text);
     line-height: 1.7;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
 }
 
 h1, h2, h3, h4 { font-family: 'Playfair Display', Georgia, serif; }
+
+img { max-width: 100%; height: auto; }
 
 a { color: var(--red); text-decoration: none; }
 a:hover { text-decoration: underline; }
@@ -249,4 +257,7 @@ footer p { font-size: 14px; }
 
 @media (max-width: 480px) {
     .cards-grid { grid-template-columns: 1fr; }
+    .container { padding: 0 16px; }
+    .feed-entry { padding: 16px; }
+    .feed-entry .entry-title { font-size: 16px; }
 }

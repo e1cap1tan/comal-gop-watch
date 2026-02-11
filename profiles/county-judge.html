@@ -6,24 +6,8 @@
     <title>County Judge — Vacant — Comal County GOP Watch</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/shared.css">
     <style>
-        :root {
-            --red: #8B1A1A; --red-light: #B22234; --navy: #1B2A4A; --navy-light: #2C3E6B;
-            --cream: #FDF8F0; --cream-dark: #F5EDE0; --gold: #C5993A; --gold-light: #D4AA4F;
-            --white: #FFFFFF; --text: #1a1a1a; --text-muted: #6B7280; --border: #E5DDD0;
-        }
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: 'Source Sans 3', -apple-system, sans-serif; background: var(--cream); color: var(--text); line-height: 1.7; }
-        h1, h2, h3, h4 { font-family: 'Playfair Display', Georgia, serif; }
-        .top-bar { background: var(--navy); color: rgba(255,255,255,0.8); font-size: 13px; text-align: center; padding: 8px 16px; letter-spacing: 0.5px; }
-        nav { background: var(--white); border-bottom: 3px solid var(--red); padding: 0 24px; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
-        nav .nav-inner { max-width: 1240px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 64px; }
-        nav .logo { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 800; color: var(--navy); text-decoration: none; }
-        nav .logo span { color: var(--red); }
-        nav .nav-links { display: flex; gap: 32px; list-style: none; }
-        nav .nav-links a { color: var(--navy); text-decoration: none; font-weight: 600; font-size: 14px; text-transform: uppercase; letter-spacing: 0.5px; transition: color 0.2s; }
-        nav .nav-links a:hover { color: var(--red); }
-        .mobile-menu-btn { display: none; background: none; border: none; font-size: 24px; color: var(--navy); cursor: pointer; }
         .container { max-width: 900px; margin: 0 auto; padding: 40px 24px; }
         .back-link { display: inline-flex; align-items: center; gap: 8px; color: var(--navy); text-decoration: none; font-weight: 600; font-size: 14px; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 32px; transition: color 0.2s; }
         .back-link:hover { color: var(--red); }
@@ -40,34 +24,20 @@
         .section a { color: var(--red); font-weight: 600; }
         .section a:hover { text-decoration: underline; }
         .placeholder { color: var(--text-muted); font-style: italic; }
-        footer { background: var(--navy); color: rgba(255,255,255,0.7); text-align: center; padding: 40px 24px; margin-top: 64px; }
-        footer .footer-brand { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 700; color: white; margin-bottom: 8px; }
-        footer p { font-size: 14px; }
+        .no-activity { color: var(--text-muted); font-style: italic; }
+        #candidate-activity .feed-card { background: var(--cream); border-radius: 8px; padding: 16px; margin-bottom: 12px; border: 1px solid var(--border); }
+        #candidate-activity .feed-card-title { font-size: 16px; color: var(--navy); margin-bottom: 4px; }
+        #candidate-activity .feed-card-date { font-size: 12px; color: var(--text-muted); margin-bottom: 4px; }
+        #candidate-activity .feed-card-summary { font-size: 14px; color: var(--text); }
+        #candidate-activity .feed-card-source { font-size: 12px; color: var(--red); }
         @media (max-width: 900px) {
-            nav .nav-links { display: none; }
-            .mobile-menu-btn { display: block; }
-            nav .nav-links.open { display: flex; flex-direction: column; position: absolute; top: 64px; left: 0; right: 0; background: var(--white); padding: 16px 24px; gap: 16px; border-bottom: 3px solid var(--red); box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
             .profile-header { flex-direction: column; align-items: center; text-align: center; }
             .profile-info h1 { font-size: 28px; }
         }
     </style>
 </head>
-<body>
-    <div class="top-bar">Comal County, Texas — Keeping Conservative Values Strong</div>
-    <nav>
-        <div class="nav-inner">
-            <a href="../index.html" class="logo">Comal <span>GOP</span> Watch</a>
-            <button class="mobile-menu-btn" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
-            <ul class="nav-links">
-                <li><a href="../index.html#elections">Elections</a></li>
-                <li><a href="../index.html#mayor">Mayor Race</a></li>
-                <li><a href="../index.html#officials">Officials</a></li>
-                <li><a href="../index.html#businesses">Businesses</a></li>
-                <li><a href="../index.html#calendar">Calendar</a></li>
-                <li><a href="../index.html#news">News</a></li>
-            </ul>
-        </div>
-    </nav>
+<body data-candidate-slug="county-judge">
+    <div id="site-nav"></div>
     <div class="container">
         <a href="../index.html" class="back-link">← Back to Home</a>
         <div class="profile-header">
@@ -91,13 +61,16 @@
             <p class="placeholder">Voting record and policy positions coming soon.</p>
         </div>
         <div class="section">
-            <h2>News Mentions</h2>
-            <p class="placeholder">News coverage and media mentions coming soon.</p>
+            <h2>Recent Activity</h2>
+            <div id="candidate-activity">
+                <p class="no-activity">Loading recent activity...</p>
+            </div>
         </div>
     </div>
-    <footer>
-        <div class="footer-brand">★ Comal County GOP Watch ★</div>
-        <p>Keeping our community informed and our values strong.</p>
-    </footer>
+    <div id="site-footer"></div>
+    <script src="../js/utils.js"></script>
+    <script src="../js/feed-renderer.js"></script>
+    <script src="../js/layout.js"></script>
+    <script src="../js/profile-feed.js"></script>
 </body>
 </html>

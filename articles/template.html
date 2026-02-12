@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{TITLE}} — Comal County GOP Watch</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/shared.css?v=4">
+</head>
+<body>
+    <div id="site-nav"></div>
+
+    <article class="article-container">
+        <header class="article-header">
+            <h1>{{TITLE}}</h1>
+            <div class="article-meta">
+                <time datetime="{{DATE_ISO}}">{{DATE_FORMATTED}}</time>
+                <span class="article-author">By Comal GOP Watch Staff</span>
+            </div>
+        </header>
+
+        <div class="article-body">
+            {{BODY}}
+        </div>
+
+        <footer class="article-footer">
+            {{#if SOURCES}}
+            <section class="article-sources">
+                <h3>Sources</h3>
+                <ul>
+                    {{#each SOURCES}}
+                    {{#if url}}
+                    <li><a href="{{url}}" target="_blank" rel="noopener">{{name}}</a></li>
+                    {{else}}
+                    <li>{{name}}</li>
+                    {{/if}}
+                    {{/each}}
+                </ul>
+            </section>
+            {{/if}}
+
+            {{#if TAGS}}
+            <section class="article-tags">
+                {{#each TAGS}}
+                <span class="tag">{{.}}</span>
+                {{/each}}
+            </section>
+            {{/if}}
+        </footer>
+    </article>
+
+    <div id="site-footer"></div>
+
+    <script src="../js/layout.js?v=4"></script>
+</body>
+</html>

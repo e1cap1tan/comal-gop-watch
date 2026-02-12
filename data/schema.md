@@ -13,7 +13,7 @@ All three feed files (`candidate-news.json`, `policy-feed.json`, `business-watch
 | `title`     | string | Headline for the entry                           |
 | `summary`   | string | 1-3 sentence description                        |
 | `source`    | string | Name of the source (e.g. "Herald-Zeitung")       |
-| `sourceUrl` | string | URL linking to the original article/post         |
+| `sourceUrl` | string | URL linking to the original article/post (can be external URL or internal article path like `articles/article-slug.html`) |
 | `category`  | string | Category slug (see taxonomy below)               |
 | `tags`      | array  | Array of tag slugs for filtering                 |
 

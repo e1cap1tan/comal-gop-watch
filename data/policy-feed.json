@@ -1,5 +1,49 @@
 [
   {
+    "id": "pf-1770921859944-city-council-approves-tirz-board-appointments",
+    "date": "2026-02-12T18:44:19",
+    "title": "City Council Approves TIRZ Board Appointments",
+    "summary": "New Braunfels City Council approved appointments to River Mill, Zipp Park, and West End TIRZ boards. Terms expire November 2027, except for Kyle Coker, Skylar Duran, and Patrick Wiggins whose terms expire in 2026.",
+    "source": "Herald-Zeitung",
+    "sourceUrl": "https://herald-zeitung.com/news/new-braunfels-city-council-approves-river-mill-zipp-park-west-end-tirz-boards-appointments/article_0e8a4878-7807-4760-bb4c-842c97c0a494.html",
+    "category": "city-council",
+    "tags": [
+      "tirz",
+      "board-appointments",
+      "city-council"
+    ]
+  },
+  {
+    "id": "pf-1770921852554-new-braunfels-approves-2m-fire-training-facility-investment",
+    "date": "2026-02-12T18:44:12",
+    "title": "New Braunfels Approves .2M Fire Training Facility Investment",
+    "summary": "The city has allocated .2 million for a new fire training facility to boost firefighter readiness and response capabilities as the community continues to grow.",
+    "source": "Community Impact",
+    "sourceUrl": "https://communityimpact.com/san-antonio/new-braunfels/government/2026/02/10/city-of-new-braunfels-invests-42m-in-fire-training-facility-to-boost-firefighter-readiness/",
+    "category": "public-safety",
+    "tags": [
+      "fire-department",
+      "budget",
+      "infrastructure",
+      "training"
+    ]
+  },
+  {
+    "id": "pf-1770921839765-new-braunfels-isd-rejects-state-prayer-time-requirement",
+    "date": "2026-02-12T18:43:59",
+    "title": "New Braunfels ISD Rejects State Prayer Time Requirement",
+    "summary": "The NBISD Board of Trustees unanimously voted to decline adopting Senate Bill 11's required daily prayer and religious reading period, citing parental autonomy and existing religious expression rights.",
+    "source": "Herald-Zeitung",
+    "sourceUrl": "https://herald-zeitung.com/news/new-braunfels-isd-vetoes-designated-prayer-period-cites-parental-autonomy/article_169e0c2f-c6ca-4eab-8e08-356fdba0709a.html",
+    "category": "education",
+    "tags": [
+      "nbisd",
+      "school-board",
+      "religious-policy",
+      "senate-bill-11"
+    ]
+  },
+  {
     "id": "pf-001",
     "date": "2026-02-09T12:00:00",
     "title": "New Braunfels City Council Approves Annexation of 200 Acres",
@@ -7,7 +51,11 @@
     "source": "Herald-Zeitung",
     "sourceUrl": "https://herald-zeitung.com",
     "category": "city-council",
-    "tags": ["annexation", "development", "new-braunfels"]
+    "tags": [
+      "annexation",
+      "development",
+      "new-braunfels"
+    ]
   },
   {
     "id": "pf-002",
@@ -17,7 +65,11 @@
     "source": "Comal County Official",
     "sourceUrl": "https://co.comal.tx.us",
     "category": "county-government",
-    "tags": ["budget", "roads", "infrastructure"]
+    "tags": [
+      "budget",
+      "roads",
+      "infrastructure"
+    ]
   },
   {
     "id": "pf-003",
@@ -27,6 +79,10 @@
     "source": "CISD Board Minutes",
     "sourceUrl": "https://comal-isd.org",
     "category": "education",
-    "tags": ["comal-isd", "school-board", "parental-rights"]
+    "tags": [
+      "comal-isd",
+      "school-board",
+      "parental-rights"
+    ]
   }
 ]

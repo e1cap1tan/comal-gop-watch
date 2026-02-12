@@ -95,31 +95,35 @@
   {
     "id": "pf-002",
     "date": "2026-02-06T12:00:00",
-    "title": "Comal County Commissioners Discuss Budget for Road Repairs",
+    "title": "Comal County Commissioners Address Growing Road Repair Needs in Budget Review",
     "summary": "Commissioners Court reviewed a proposed $12M allocation for county road repairs, prioritizing routes in precincts 1 and 3 that have seen the most growth-related wear.",
-    "source": "Comal County Official",
-    "sourceUrl": "https://co.comal.tx.us/news/budget-road-repairs-precincts",
-    "archiveUrl": "articles/archive/county-road-repairs-budget.html",
+    "source": "Comal GOP Watch",
+    "sourceUrl": "articles/county-road-repairs-budget-discussion.html",
+    "archiveUrl": "https://co.comal.tx.us/news/budget-road-repairs-precincts",
     "category": "county-government",
     "tags": [
       "budget",
       "roads",
-      "infrastructure"
+      "infrastructure",
+      "commissioners-court",
+      "county-government"
     ]
   },
   {
     "id": "pf-003",
     "date": "2026-02-03T12:00:00",
-    "title": "School Board Reviews Policy on Parental Notification",
+    "title": "Comal ISD Board Examines Enhanced Parental Notification Requirements",
     "summary": "The Comal ISD Board of Trustees discussed updates to its parental notification policies, aiming to increase transparency around curriculum changes and library material reviews.",
-    "source": "CISD Board Minutes",
-    "sourceUrl": "https://comal-isd.org/board/policies/parental-notification",
-    "archiveUrl": "articles/archive/cisd-parental-notification-policy.html",
+    "source": "Comal GOP Watch",
+    "sourceUrl": "articles/cisd-parental-notification-policy-review.html",
+    "archiveUrl": "https://comal-isd.org/board/policies/parental-notification",
     "category": "education",
     "tags": [
       "comal-isd",
       "school-board",
-      "parental-rights"
+      "parental-rights",
+      "education",
+      "curriculum"
     ]
   }
 ]

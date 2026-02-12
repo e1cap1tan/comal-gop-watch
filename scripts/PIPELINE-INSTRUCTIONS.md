@@ -47,10 +47,22 @@ Example feed entry with archive:
 
 Create original articles using the `generate-article.js` script when:
 
+- **Press releases and official announcements**: When the source is a press release, official government announcement, board minutes, chamber of commerce release, or association announcement (not journalism)
 - **Social media only sources**: The story originates from Facebook community groups, Nextdoor, local social media discussions with no corresponding news article
 - **Community discussion**: Local debates or conversations happening without formal news coverage
 - **Direct observation**: Events, meetings, or situations observed but not covered by traditional media
 - **Multiple fragmented sources**: When a story exists across multiple social posts, community discussions, or informal sources that need to be synthesized
+
+### Press Release Rule
+
+**If the source is a press release or official announcement (not journalism), create an original article:**
+
+- Write an original journalistic article that reports on the press release content in a journalistic style (not just copy it)
+- The article should include who/what/when/where/why and local context
+- Always include a footnote/source section at the bottom linking to the original press release
+- Feed card should link to OUR article, not the press release
+- Source in feed entry should be "Comal GOP Watch"
+- Include the original press release link in the `sources` parameter when generating the article
 
 ## Research Process
 

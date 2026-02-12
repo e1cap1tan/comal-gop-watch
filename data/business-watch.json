@@ -2,13 +2,13 @@
   {
     "id": "bw-001",
     "date": "2026-02-07T12:00:00",
-    "title": "Local Restaurant Chain Donates to Conservative Candidates",
+    "title": "Local Restaurant Group Announces Support for Conservative Municipal Candidates",
     "summary": "A well-known New Braunfels restaurant group publicly announced donations to multiple conservative candidates in the upcoming municipal election, drawing both praise and criticism on social media.",
-    "source": "Community Report",
-    "sourceUrl": "https://herald-zeitung.com/business/local-restaurant-donations-conservative-candidates",
-    "archiveUrl": "articles/archive/restaurant-chain-donates-conservative.html",
+    "source": "Comal GOP Watch",
+    "sourceUrl": "articles/restaurant-group-backs-conservative-candidates.html",
+    "archiveUrl": "https://herald-zeitung.com/business/local-restaurant-donations-conservative-candidates",
     "category": "donations",
-    "tags": ["restaurant", "campaign-finance", "new-braunfels"]
+    "tags": ["restaurant", "campaign-finance", "new-braunfels", "business-politics", "2026-election"]
   },
   {
     "id": "bw-002",
@@ -23,12 +23,12 @@
   {
     "id": "bw-003",
     "date": "2026-02-01T12:00:00",
-    "title": "Chamber of Commerce Endorses Pro-Growth Candidates",
+    "title": "Greater New Braunfels Chamber Announces 2026 Municipal Election Endorsements",
     "summary": "The Greater New Braunfels Chamber of Commerce released its endorsement list for the 2026 municipal election, backing candidates who support business-friendly development policies.",
-    "source": "NB Chamber",
-    "sourceUrl": "https://innewbraunfels.com/chamber/endorsements/2026-election",
-    "archiveUrl": "articles/archive/chamber-endorsements-2026.html",
+    "source": "Comal GOP Watch",
+    "sourceUrl": "articles/nb-chamber-endorses-pro-growth-candidates.html",
+    "archiveUrl": "https://innewbraunfels.com/chamber/endorsements/2026-election",
     "category": "endorsements",
-    "tags": ["chamber-of-commerce", "endorsements", "2026-election"]
+    "tags": ["chamber-of-commerce", "endorsements", "2026-election", "business-friendly", "economic-development"]
   }
 ]

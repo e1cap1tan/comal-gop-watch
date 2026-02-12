@@ -107,11 +107,29 @@ Before writing an original article, thoroughly research to gather:
      --tags "relevant,tags,for,filtering" \
      --sources "Facebook Community Group,Local Reports,Community Discussion"
    ```
+   
+   **Note**: The article generator automatically creates a professional header image using xAI's image generation API. The image is styled for modern news/journalism with high contrast and clean composition appropriate for Texas local government and politics coverage.
 
 3. **Create Feed Entry**: Add entry to the appropriate feed JSON file with:
    - `source`: "Comal GOP Watch" (not "Facebook" or "Social Media")
    - `sourceUrl`: The generated article path (e.g., `articles/article-slug.html`)
+   - `image`: Path to the generated header image (e.g., `articles/images/article-slug.jpg`)
    - Appropriate category and tags
+
+## Mandatory Header Images
+
+**All articles must have header images.** This includes:
+
+- **New articles**: Automatically generated during article creation via `generate-article.js`
+- **Existing articles**: Use the xAI image generation tool manually if needed:
+  ```bash
+  export XAI_API_KEY="$(grep -o '"xai": {"apiKey": "[^"]*"' ~/.openclaw/openclaw.json | cut -d'"' -f6)"
+  cd tools/xai-image
+  ./generate.sh "Professional news header image for [article topic]" grok-imagine-image articles/images/article-slug.jpg
+  ```
+
+- **Feed entries**: Include `image` field pointing to header image path
+- **Image style**: Bold, modern visual treatment with cleaner lines and higher contrast suitable for professional news/journalism (NOT sepia/parchment style)
 
 ## Content Standards
 

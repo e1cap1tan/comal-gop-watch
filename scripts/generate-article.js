@@ -7,6 +7,7 @@
 
 const fs = require('fs');
 const path = require('path');
+const { execSync } = require('child_process');
 
 function parseArgs() {
     const args = process.argv.slice(2);
@@ -49,13 +50,43 @@ function parseSources(sourcesStr) {
     });
 }
 
-function generateArticle(options) {
+async function generateArticleImage(slug, title, tags) {
+    try {
+        // Create image prompt based on article title and tags
+        const tagsForPrompt = tags ? tags.split(',').map(t => t.trim()).join(', ') : '';
+        const prompt = `Professional news header image for article about ${title}. ${tagsForPrompt ? `Related to: ${tagsForPrompt}. ` : ''}Bold modern journalistic photography style, high contrast, clean composition, Texas local government and politics theme`;
+        
+        const imagePath = path.join(__dirname, '..', 'articles', 'images', `${slug}.jpg`);
+        const imageGeneratorPath = path.join(__dirname, '..', '..', 'tools', 'xai-image', 'generate.sh');
+        
+        // Ensure images directory exists
+        const imagesDir = path.join(__dirname, '..', 'articles', 'images');
+        if (!fs.existsSync(imagesDir)) {
+            fs.mkdirSync(imagesDir, { recursive: true });
+        }
+        
+        // Run image generation
+        console.log('Generating header image...');
+        execSync(`export XAI_API_KEY="$(grep -o '"xai": {"apiKey": "[^"]*"' ~/.openclaw/openclaw.json | cut -d'"' -f6)" && cd "${path.dirname(imageGeneratorPath)}" && ./generate.sh "${prompt}" grok-imagine-image "${imagePath}"`, 
+                 { stdio: 'inherit', shell: '/bin/bash' });
+        
+        return `images/${slug}.jpg`;
+    } catch (error) {
+        console.warn('Image generation failed:', error.message);
+        return null;
+    }
+}
+
+async function generateArticle(options) {
     const { slug, title, date, body, tags, sources } = options;
     
     // Validate required fields
     if (!slug || !title || !date || !body) {
         throw new Error('Missing required fields: slug, title, date, body');
     }
+    
+    // Generate article image first
+    const imagePath = await generateArticleImage(slug, title, tags);
     
     // Read template
     const templatePath = path.join(__dirname, '..', 'articles', 'template.html');
@@ -73,11 +104,19 @@ function generateArticle(options) {
     const parsedSources = parseSources(sources);
     const parsedTags = tags ? tags.split(',').map(t => t.trim()) : [];
     
+    // Add hero image if generated
+    const heroImageHtml = imagePath 
+        ? `            <div class="article-hero-image">
+                <img src="${imagePath}" alt="${title}" />
+            </div>`
+        : '';
+    
     // Replace placeholders - starting with the simple ones
     template = template.replace(/{{TITLE}}/g, title);
     template = template.replace(/{{DATE_ISO}}/g, dateIso);
     template = template.replace(/{{DATE_FORMATTED}}/g, dateFormatted);
     template = template.replace(/{{BODY}}/g, body);
+    template = template.replace(/{{HERO_IMAGE}}/g, heroImageHtml);
     
     // Handle sources section
     if (parsedSources.length > 0) {
@@ -123,7 +162,7 @@ ${tagsHtml}
     return `articles/${slug}.html`;
 }
 
-function main() {
+async function main() {
     try {
         const options = parseArgs();
         
@@ -138,7 +177,7 @@ function main() {
             process.exit(1);
         }
         
-        const articlePath = generateArticle(options);
+        const articlePath = await generateArticle(options);
         console.log(articlePath);
         
     } catch (error) {

@@ -6,7 +6,7 @@
     <title>Comal County GOP Watch</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/shared.css?v=3">
+    <link rel="stylesheet" href="css/shared.css?v=4">
     <style>
         /* ── Hero ── */
         .hero {
@@ -279,6 +279,78 @@
         </div>
         <div id="election-calendar" class="calendar-grid"></div>
 
+        <!-- Upcoming Races -->
+        <div id="races" class="star-divider">★ ★ ★</div>
+        <div class="section-header">
+            <h2>🗳️ Upcoming Races</h2>
+            <p>Who's running in 2026</p>
+        </div>
+
+        <div class="race-section">
+            <h3>Mayor — New Braunfels</h3>
+            <p class="subtitle">Filing deadline: <strong>February 13, 2026</strong> · Election: May 2026</p>
+            <div class="cards-grid" id="mayor-candidates">
+                <div class="card candidate-card incumbent">
+                    <div class="avatar"><img src="images/neal-linnartz.jpg" alt="Neal Linnartz" loading="lazy"></div>
+                    <div class="name"><a href="profiles/neal-linnartz.html">Neal Linnartz</a></div>
+                    <div class="status">Incumbent</div>
+                    <span class="badge incumbent">★ Incumbent</span>
+                </div>
+                <div class="card candidate-card">
+                    <div class="avatar"><img src="images/michael-french.jpg" alt="Michael French" loading="lazy"></div>
+                    <div class="name"><a href="profiles/michael-french.html">Michael French</a></div>
+                    <div class="status">Candidate</div>
+                </div>
+                <div class="card candidate-card">
+                    <div class="avatar"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M20 21a8 8 0 10-16 0"/></svg></div>
+                    <div class="name"><a href="profiles/bradley-porter.html">Bradley Porter</a></div>
+                    <div class="status">Candidate</div>
+                </div>
+                <div class="card candidate-card">
+                    <div class="avatar"><img src="images/angela-allen.jpg" alt="Angela Allen" loading="lazy"></div>
+                    <div class="name"><a href="profiles/angela-allen.html">Angela Allen</a></div>
+                    <div class="status">Candidate</div>
+                </div>
+                <div class="card candidate-card">
+                    <div class="avatar"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M20 21a8 8 0 10-16 0"/></svg></div>
+                    <div class="name"><a href="profiles/jonathon-frazier.html">Jonathon Frazier</a></div>
+                    <div class="status">Candidate</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="race-section">
+            <h3>City Council — Districts 5 &amp; 6</h3>
+            <p class="subtitle">Filing deadline: <strong>February 13, 2026</strong> · Election: May 2026</p>
+            <div class="officials-section">
+                <div class="officials-group">
+                    <h3>District 5 <span style="font-weight:400;color:var(--text-muted);">(Incumbent: Mary Ann Labowski)</span></h3>
+                    <p style="color:var(--text-muted);font-style:italic;padding:8px 0;">No challengers filed yet</p>
+                </div>
+                <div class="officials-group">
+                    <h3>District 6 <span style="font-weight:400;color:var(--text-muted);">(Incumbent: April Ryan)</span></h3>
+                    <p style="color:var(--text-muted);font-style:italic;padding:8px 0;">No challengers filed yet</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="race-section">
+            <h3>Comal County Commissioner — Precincts 2 &amp; 4</h3>
+            <p class="subtitle">Texas Primary: <strong>March 3, 2026</strong></p>
+            <div class="officials-section">
+                <div class="officials-group">
+                    <h3>Precinct 2</h3>
+                    <div class="official-row"><span class="title">Justin Stratemann</span><span class="name">Candidate</span></div>
+                    <div class="official-row"><span class="title">Brian Minus</span><span class="name">Candidate</span></div>
+                    <div class="official-row"><span class="title">Randy Rollins</span><span class="name">Candidate</span></div>
+                </div>
+                <div class="officials-group">
+                    <h3>Precinct 4</h3>
+                    <div class="official-row"><span class="title">Jen Crownover</span><span class="name">Unopposed</span></div>
+                </div>
+            </div>
+        </div>
+
         <!-- Current Officials -->
         <div id="officials" class="star-divider">★ ★ ★</div>
         <div class="section-header">
@@ -290,9 +362,9 @@
 
     <div id="site-footer"></div>
 
-    <script src="js/utils.js?v=3"></script>
-    <script src="js/feed-renderer.js?v=3"></script>
-    <script src="js/layout.js?v=3"></script>
+    <script src="js/utils.js?v=4"></script>
+    <script src="js/feed-renderer.js?v=4"></script>
+    <script src="js/layout.js?v=4"></script>
     <script>
     (function () {
         'use strict';

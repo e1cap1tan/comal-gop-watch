@@ -227,6 +227,24 @@ a.feed-entry-link .feed-entry {
     color: var(--red);
 }
 
+/* ── Race Sections ── */
+.race-section { margin-bottom: 32px; }
+.race-section h3 { font-family: 'Playfair Display', serif; font-size: 22px; color: var(--navy); margin-bottom: 4px; }
+.race-section .subtitle { font-size: 14px; color: var(--text-muted); margin-bottom: 16px; }
+
+/* ── Candidate Cards ── */
+.cards-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 16px; margin-bottom: 16px; }
+.card.candidate-card { background: var(--white); border: 1px solid var(--border); border-radius: 12px; padding: 20px 16px; text-align: center; transition: box-shadow 0.2s, transform 0.15s; }
+.card.candidate-card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.1); transform: translateY(-2px); }
+.card.candidate-card.incumbent { border-color: var(--gold); }
+.card.candidate-card .avatar { width: 72px; height: 72px; border-radius: 50%; overflow: hidden; margin: 0 auto 12px; background: linear-gradient(135deg, var(--navy-light), var(--navy)); display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.4); }
+.card.candidate-card .avatar img { width: 100%; height: 100%; object-fit: cover; }
+.card.candidate-card .name { font-weight: 600; color: var(--navy); margin-bottom: 4px; }
+.card.candidate-card .name a { color: var(--navy); text-decoration: none; }
+.card.candidate-card .name a:hover { color: var(--red); }
+.card.candidate-card .status { font-size: 13px; color: var(--text-muted); }
+.badge.incumbent { display: inline-block; background: var(--gold); color: var(--white); font-size: 11px; font-weight: 600; padding: 2px 8px; border-radius: 4px; margin-top: 8px; }
+
 /* ── Tags ── */
 .tag {
     display: inline-block;

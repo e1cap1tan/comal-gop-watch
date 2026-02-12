@@ -79,18 +79,25 @@ function renderFeedCard(entry) {
         ? entry.tags.map(t => `<span class="tag">${escapeHtml(t)}</span>`).join('')
         : '';
 
-    const sourceLink = entry.sourceUrl
-        ? `<a href="${escapeHtml(entry.sourceUrl)}" target="_blank" rel="noopener">${escapeHtml(entry.source || 'Source')}</a>`
-        : escapeHtml(entry.source || '');
+    const sourceName = escapeHtml(entry.source || 'Source');
+    const sourceUrl = entry.sourceUrl ? escapeHtml(entry.sourceUrl) : '';
 
-    return `<article class="feed-entry" data-id="${escapeHtml(entry.id || '')}">
-    <div class="entry-date">${escapeHtml(dateStr)}</div>
+    const cardInner = `<div class="entry-date">${escapeHtml(dateStr)}</div>
     <h3 class="entry-title">${escapeHtml(entry.title || '')}</h3>
     <p class="entry-summary">${escapeHtml(entry.summary || '')}</p>
     <div class="entry-meta">
         ${categoryBadge}${tags}
     </div>
-    <div class="entry-source">Source: ${sourceLink}</div>
+    <div class="entry-source">Source: ${sourceName}</div>`;
+
+    if (sourceUrl) {
+        return `<a href="${sourceUrl}" target="_blank" rel="noopener" class="feed-entry-link"><article class="feed-entry" data-id="${escapeHtml(entry.id || '')}">
+    ${cardInner}
+</article></a>`;
+    }
+
+    return `<article class="feed-entry" data-id="${escapeHtml(entry.id || '')}">
+    ${cardInner}
 </article>`;
 }
 

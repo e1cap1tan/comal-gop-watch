@@ -173,12 +173,29 @@ footer .footer-brand {
 footer p { font-size: 14px; }
 
 /* ── Feed Entry Cards ── */
+a.feed-entry-link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    margin-bottom: 16px;
+    border-radius: 12px;
+    transition: box-shadow 0.2s, transform 0.15s;
+}
+a.feed-entry-link:hover {
+    box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+    transform: translateY(-2px);
+}
+a.feed-entry-link .feed-entry {
+    margin-bottom: 0;
+}
+
 .feed-entry {
     background: var(--white);
     border-radius: 12px;
     padding: 20px 24px;
     border: 1px solid var(--border);
     margin-bottom: 16px;
+    cursor: pointer;
 }
 
 .feed-entry .entry-date {

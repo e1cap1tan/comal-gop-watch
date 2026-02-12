@@ -30,7 +30,7 @@
             return '<li><a href="' + base + link.href + '">' + link.label + '</a></li>';
         }).join('\n            ');
 
-        return '<div class="top-bar">Hill Country Sentinel &mdash; Comal County Political Intelligence</div>\n' +
+        return '<div class="top-bar">Hill Country Sentinel &mdash; Informed Citizens. Accountable Leaders.</div>\n' +
             '<nav>\n' +
             '  <div class="nav-inner">\n' +
             '    <a href="' + base + 'index.html" class="logo">Hill Country <span>Sentinel</span></a>\n' +

@@ -95,7 +95,13 @@ async function initProfileFeed(options) {
     var opts = options || {};
     var slug = opts.slug || getCandidateSlug();
     var containerId = opts.containerId || 'candidate-activity';
-    var feedUrl = opts.feedUrl || '/data/candidate-news.json';
+    // Detect relative base path based on current page location
+    var basePath = '';
+    if (typeof window !== 'undefined') {
+        var loc = window.location.pathname;
+        if (loc.match(/\/feeds\//i) || loc.match(/\/profiles\//i)) basePath = '../';
+    }
+    var feedUrl = opts.feedUrl || (basePath + 'data/candidate-news.json');
 
     var container = document.getElementById(containerId);
     if (!container || !slug) return;

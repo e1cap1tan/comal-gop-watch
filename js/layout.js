@@ -6,22 +6,32 @@
 (function () {
     'use strict';
 
+    // Detect base path: if we're in a subdirectory (e.g. feeds/), prefix with ../
+    function getBase() {
+        if (typeof window === 'undefined') return '';
+        var path = window.location.pathname;
+        // If in a subdirectory like /comal-gop-watch/feeds/, go up one level
+        if (path.match(/\/feeds\//i) || path.match(/\/profiles\//i)) return '../';
+        return '';
+    }
+
     var NAV_LINKS = [
-        { label: 'Home', href: '/' },
-        { label: 'Candidates', href: '/feeds/candidates.html' },
-        { label: 'Policy', href: '/feeds/policy.html' },
-        { label: 'Business Watch', href: '/feeds/business.html' }
+        { label: 'Home', href: 'index.html' },
+        { label: 'Candidates', href: 'feeds/candidates.html' },
+        { label: 'Policy', href: 'feeds/policy.html' },
+        { label: 'Business Watch', href: 'feeds/business.html' }
     ];
 
     function renderNav() {
+        var base = getBase();
         var linksHtml = NAV_LINKS.map(function (link) {
-            return '<li><a href="' + link.href + '">' + link.label + '</a></li>';
+            return '<li><a href="' + base + link.href + '">' + link.label + '</a></li>';
         }).join('\n            ');
 
         return '<div class="top-bar">Comal County GOP Watch &mdash; Keeping Local Voters Informed</div>\n' +
             '<nav>\n' +
             '  <div class="nav-inner">\n' +
-            '    <a href="/" class="logo">Comal <span>GOP</span> Watch</a>\n' +
+            '    <a href="' + base + 'index.html" class="logo">Comal <span>GOP</span> Watch</a>\n' +
             '    <ul class="nav-links" id="nav-links">\n' +
             '        ' + linksHtml + '\n' +
             '    </ul>\n' +

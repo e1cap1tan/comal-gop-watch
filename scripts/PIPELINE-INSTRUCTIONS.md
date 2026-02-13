@@ -134,11 +134,35 @@ Before writing an original article, thoroughly research to gather:
   ```bash
   export XAI_API_KEY="$(grep -o '"xai": {"apiKey": "[^"]*"' ~/.openclaw/openclaw.json | cut -d'"' -f6)"
   cd tools/xai-image
-  ./generate.sh "Professional news header image for [article topic]" grok-imagine-image articles/images/article-slug.jpg
+  ./generate.sh "PROMPT" grok-imagine-image articles/images/article-slug.jpg
   ```
 
 - **Feed entries**: Include `image` field pointing to header image path
-- **Image style**: Bold, modern visual treatment with cleaner lines and higher contrast suitable for professional news/journalism (NOT sepia/parchment style)
+
+### Image Style Rules (CRITICAL)
+
+**Two distinct visual systems:**
+1. **Site chrome** (header, nav, footer, branding): Woodcut/ink illustration style, sepia/navy/red palette
+2. **Article header images**: **Watercolor paint style** — soft washes, visible brush strokes, muted warm palette reminiscent of vintage Texas Hill Country watercolor paintings. Think traditional watercolor illustration, NOT photorealistic.
+
+### Image Content Rules (CRITICAL — HARD RULES)
+
+**NEVER generate AI images that depict:**
+- ❌ Real people (named individuals, candidates, officials)
+- ❌ Real businesses by name (Cooper's Pit BBQ, specific restaurants, shops)
+- ❌ Real locations rendered as if they're photographs
+- ❌ Photorealistic scenes of identifiable real places
+
+**ALWAYS use:**
+- ✅ Generic symbolic/thematic imagery (e.g., a watercolor of a generic Texas town hall, a river landscape, rolling hills)
+- ✅ Abstract or conceptual representations of the article topic
+- ✅ Generic scenes that evoke the topic without depicting specific real people/places
+- ✅ Watercolor style that is clearly artistic, not photorealistic
+
+**Example prompts:**
+- Article about a town hall meeting: "Watercolor painting of a generic small-town community meeting inside a rustic Texas hall, warm muted tones, visible brush strokes, no specific people or signage"
+- Article about wastewater concerns: "Watercolor painting of a Texas Hill Country river winding through green landscape with rolling hills, soft washes, muted warm palette"
+- Article about a mayoral race: "Watercolor painting of a small Texas town square with a courthouse and American flags, soft warm tones, no specific people"
 
 ## Content Standards
 

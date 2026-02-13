@@ -54,7 +54,7 @@ async function generateArticleImage(slug, title, tags) {
     try {
         // Create image prompt based on article title and tags
         const tagsForPrompt = tags ? tags.split(',').map(t => t.trim()).join(', ') : '';
-        const prompt = `Professional news header image for article about ${title}. ${tagsForPrompt ? `Related to: ${tagsForPrompt}. ` : ''}Bold modern journalistic photography style, high contrast, clean composition, Texas local government and politics theme`;
+        const prompt = `Watercolor painting illustration for a local news article about ${title}. ${tagsForPrompt ? `Related to: ${tagsForPrompt}. ` : ''}Texas Hill Country watercolor style with soft washes, visible brush strokes, muted warm palette. Generic symbolic scene — DO NOT depict any real named people, real businesses, or identifiable real locations. Use generic thematic imagery only.`;
         
         const imagePath = path.join(__dirname, '..', 'articles', 'images', `${slug}.jpg`);
         const imageGeneratorPath = path.join(__dirname, '..', '..', 'tools', 'xai-image', 'generate.sh');

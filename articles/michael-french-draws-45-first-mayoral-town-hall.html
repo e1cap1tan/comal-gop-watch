@@ -86,6 +86,20 @@
 
     <div id="site-footer"></div>
 
-    <script src="../js/layout.js?v=6"></script>
+    <script src="../js/utils.js?v=8"></script>
+    <script src="../js/feed-renderer.js?v=8"></script>
+    <script src="../js/layout.js?v=8"></script>
+    
+    <script>
+        // Initialize auto-linking for candidate names in article content
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(function() {
+                initAutoLinking([
+                    '.article-body',
+                    '.article-footer'
+                ], '../');
+            }, 500);
+        });
+    </script>
 </body>
 </html>

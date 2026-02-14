@@ -67,7 +67,7 @@
         }
     }
 
-    // Candidate name to profile mapping
+    // Candidate name to profile mapping (only includes existing profiles)
     var CANDIDATE_PROFILES = {
         'Angela Allen': 'angela-allen.html',
         'April Ryan': 'april-ryan.html',
@@ -79,27 +79,13 @@
         'Jen Crownover': 'jen-crownover.html',
         'Jonathon Frazier': 'jonathon-frazier.html',
         'Kevin Webb': 'kevin-webb.html',
-        'Kristen Hoyt': 'kristen-hoyt.html',
         'Lawrence Spradley': 'lawrence-spradley.html',
-        'LeAnn Miller': 'leann-miller.html',
         'Mary Ann Labowski': 'mary-ann-labowski.html',
         'Michael Capizzi': 'michael-capizzi.html',
         'Michael French': 'michael-french.html',
         'Neal Linnartz': 'neal-linnartz.html',
-        'Ryan Bourbon-Stuart': 'ryan-bourbon-stuart.html',
         'Scott Haag': 'scott-haag.html',
-        'Tom Clark': 'tom-clark.html',
-        'Toni Carter': 'toni-carter.html',
-        'Mark Teixeira': 'mark-teixeira.html',
-        'Paul Rojas': 'paul-rojas.html',
-        'Justin Stratemann': 'justin-stratemann.html',
-        'Brian Minus': 'brian-minus.html',
-        'Randy Rollins': 'randy-rollins.html',
-        'Garrison Maurer': 'garrison-maurer.html',
-        'Romelle Walkup': 'romelle-walkup.html',
-        'Melle Walkup': 'romelle-walkup.html',
-        'Kayne Parrish': 'kayne-parrish.html',
-        'Christi Craddick': 'christi-craddick.html'
+        'Toni Carter': 'toni-carter.html'
     };
 
     function autoLinkCandidateNames() {

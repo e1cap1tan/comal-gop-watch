@@ -57,7 +57,7 @@ async function generateArticleImage(slug, title, tags) {
         const prompt = `Watercolor painting illustration for a local news article about ${title}. ${tagsForPrompt ? `Related to: ${tagsForPrompt}. ` : ''}Texas Hill Country watercolor style with soft washes, visible brush strokes, muted warm palette. Generic symbolic scene — DO NOT depict any real named people, real businesses, or identifiable real locations. Use generic thematic imagery only.`;
         
         const imagePath = path.join(__dirname, '..', 'articles', 'images', `${slug}.jpg`);
-        const imageGeneratorPath = path.join(__dirname, '..', '..', 'tools', 'xai-image', 'generate.sh');
+        const imageGeneratorPath = path.join(__dirname, '..', '..', '..', 'tools', 'xai-image', 'generate.sh');
         
         // Ensure images directory exists
         const imagesDir = path.join(__dirname, '..', 'articles', 'images');

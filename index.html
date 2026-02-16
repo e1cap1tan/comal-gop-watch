@@ -729,8 +729,8 @@
     <div id="site-footer"></div>
 
     <script src="js/utils.js?v=8"></script>
-    <script src="js/feed-renderer.js?v=8"></script>
-    <script src="js/layout.js?v=9"></script>
+    <script src="js/feed-renderer.js?v=10"></script>
+    <script src="js/layout.js?v=10"></script>
     <script>
     (function () {
         'use strict';
@@ -827,6 +827,13 @@
                     html += '</div>';
                     html += '</a>';
                 });
+                html += '</div>';
+            }
+
+            // "View All News" link
+            if (allEntries.length > 10) {
+                html += '<div style="text-align: center; margin-top: 32px;">';
+                html += '<a href="feeds/news.html" style="display: inline-block; padding: 14px 32px; background: var(--navy); color: white; text-decoration: none; font-weight: 600; font-size: 16px; border-radius: 6px; transition: background 0.2s;">View All ' + allEntries.length + ' Stories →</a>';
                 html += '</div>';
             }
 

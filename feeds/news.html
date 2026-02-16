@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All News — Hill Country Sentinel</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/shared.css?v=10">
+    <style>
+        .page-header {
+            background: linear-gradient(135deg, var(--navy-dark), var(--navy-light));
+            color: white;
+            padding: 56px 24px 48px;
+            text-align: center;
+            border-bottom: 6px solid var(--red);
+            position: relative;
+        }
+        .page-header::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: repeating-linear-gradient(45deg, transparent, transparent 2px, rgba(255,255,255,0.02) 2px, rgba(255,255,255,0.02) 4px);
+        }
+        .page-header h1 {
+            font-size: 42px;
+            font-weight: 800;
+            margin-bottom: 12px;
+            text-shadow: 0 3px 12px rgba(0,0,0,0.4);
+            letter-spacing: -0.5px;
+            position: relative;
+            z-index: 1;
+        }
+        .page-header p {
+            color: rgba(255,255,255,0.9);
+            font-size: 17px;
+            font-weight: 500;
+            letter-spacing: 0.3px;
+            position: relative;
+            z-index: 1;
+        }
+        .content-wrapper {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 32px 24px 64px;
+        }
+        .filter-bar {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 24px;
+            padding-bottom: 16px;
+            border-bottom: 2px solid var(--content-border);
+        }
+        .filter-btn {
+            padding: 8px 18px;
+            border: 2px solid var(--navy);
+            background: transparent;
+            color: var(--navy);
+            font-weight: 600;
+            font-size: 14px;
+            cursor: pointer;
+            border-radius: 6px;
+            transition: all 0.2s ease;
+        }
+        .filter-btn:hover {
+            background: var(--navy);
+            color: white;
+        }
+        .filter-btn.active {
+            background: var(--navy);
+            color: white;
+        }
+        .no-results {
+            color: var(--text-muted);
+            font-style: italic;
+            text-align: center;
+            padding: 40px 0;
+        }
+        .entry-count {
+            color: var(--text-muted);
+            font-size: 14px;
+            margin-bottom: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div id="nav-placeholder"></div>
+
+    <div class="page-header">
+        <h1>All News</h1>
+        <p>Complete coverage of Comal County politics, government, and community</p>
+    </div>
+
+    <div class="content-wrapper">
+        <div class="filter-bar" id="filter-bar"></div>
+        <div class="entry-count" id="entry-count"></div>
+        <div id="feed-container">
+            <p style="color:var(--text-muted);font-style:italic;">Loading all news stories...</p>
+        </div>
+    </div>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="../js/feed-renderer.js?v=10"></script>
+    <script src="../js/layout.js?v=10"></script>
+    <script>
+        (function () {
+            'use strict';
+
+            var feedContainer = document.getElementById('feed-container');
+            var filterBar = document.getElementById('filter-bar');
+            var entryCount = document.getElementById('entry-count');
+            var allEntries = [];
+            var activeFilter = 'all';
+
+            function renderFilterButtons() {
+                var html = '<button class="filter-btn active" data-filter="all">All</button>';
+                html += '<button class="filter-btn" data-filter="candidates">Candidates</button>';
+                html += '<button class="filter-btn" data-filter="policy">Policy</button>';
+                html += '<button class="filter-btn" data-filter="business">Business</button>';
+                filterBar.innerHTML = html;
+            }
+
+            function applyFilter(filter) {
+                activeFilter = filter;
+
+                var buttons = filterBar.querySelectorAll('.filter-btn');
+                buttons.forEach(function (btn) {
+                    btn.classList.toggle('active', btn.getAttribute('data-filter') === filter);
+                });
+
+                var filtered = filter === 'all'
+                    ? allEntries
+                    : allEntries.filter(function (e) { return e.feedCategory === filter; });
+
+                entryCount.textContent = filtered.length + ' stor' + (filtered.length === 1 ? 'y' : 'ies');
+
+                if (filtered.length === 0) {
+                    feedContainer.innerHTML = '<p class="no-results">No entries found for this category.</p>';
+                } else {
+                    renderFeedList(filtered, feedContainer);
+                }
+            }
+
+            filterBar.addEventListener('click', function (e) {
+                var btn = e.target.closest('.filter-btn');
+                if (!btn) return;
+                applyFilter(btn.getAttribute('data-filter'));
+            });
+
+            // Load all three feeds
+            Promise.all([
+                fetchFeed('../data/candidate-news.json'),
+                fetchFeed('../data/policy-feed.json'),
+                fetchFeed('../data/business-watch.json')
+            ]).then(function (results) {
+                var candidateEntries = results[0].map(function(e) { return Object.assign({}, e, { feedCategory: 'candidates' }); });
+                var policyEntries = results[1].map(function(e) { return Object.assign({}, e, { feedCategory: 'policy' }); });
+                var businessEntries = results[2].map(function(e) { return Object.assign({}, e, { feedCategory: 'business' }); });
+
+                allEntries = candidateEntries.concat(policyEntries).concat(businessEntries);
+                allEntries.sort(function(a, b) { return new Date(b.date) - new Date(a.date); });
+
+                renderFilterButtons();
+                applyFilter('all');
+
+                setTimeout(function() {
+                    initAutoLinking(['#feed-container'], '../');
+                }, 500);
+            }).catch(function (err) {
+                feedContainer.innerHTML = '<p class="no-results">Failed to load news feeds.</p>';
+                console.error(err);
+            });
+        })();
+    </script>
+</body>
+</html>

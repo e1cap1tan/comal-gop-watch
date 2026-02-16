@@ -25,6 +25,7 @@
 
     var NAV_LINKS = [
         { label: 'Home', href: 'index.html' },
+        { label: 'News', href: 'feeds/news.html' },
         { label: 'Candidates', href: 'feeds/candidates.html' },
         { label: 'Policy', href: 'feeds/policy.html' },
         { label: 'Business Watch', href: 'feeds/business.html' }

@@ -54,10 +54,11 @@ async function generateArticleImage(slug, title, tags) {
     try {
         // Create image prompt based on article title and tags
         const tagsForPrompt = tags ? tags.split(',').map(t => t.trim()).join(', ') : '';
-        const prompt = `Watercolor painting illustration for a local news article about ${title}. ${tagsForPrompt ? `Related to: ${tagsForPrompt}. ` : ''}Texas Hill Country watercolor style with soft washes, visible brush strokes, muted warm palette. Generic symbolic scene — DO NOT depict any real named people, real businesses, or identifiable real locations. Use generic thematic imagery only.`;
+        const styleSuffix = 'Soft watercolor painting style. Warm washes of sepia, muted gold, and dusty blue. Loose, impressionistic brushwork with visible paper texture and color bleeds. The edges of the painting gradually fade to pure white, with soft watercolor washes dissolving seamlessly into a clean white background on all sides. No hard borders, frames, or sharp edges.';
+        const prompt = `A scene depicting: ${title}. ${tagsForPrompt ? `Related to: ${tagsForPrompt}. ` : ''}Texas Hill Country setting. ${styleSuffix}`;
         
-        const imagePath = path.join(__dirname, '..', 'articles', 'images', `${slug}.jpg`);
-        const imageGeneratorPath = path.join(__dirname, '..', '..', '..', 'tools', 'xai-image', 'generate.sh');
+        const imagePath = path.join(__dirname, '..', 'articles', 'images', `${slug}.png`);
+        const imageGeneratorPath = path.join(__dirname, '..', '..', '..', 'tools', 'gemini-image', 'generate.sh');
         
         // Ensure images directory exists
         const imagesDir = path.join(__dirname, '..', 'articles', 'images');
@@ -65,12 +66,12 @@ async function generateArticleImage(slug, title, tags) {
             fs.mkdirSync(imagesDir, { recursive: true });
         }
         
-        // Run image generation
-        console.log('Generating header image...');
-        execSync(`export XAI_API_KEY="$(grep -o '"xai": {"apiKey": "[^"]*"' ~/.openclaw/openclaw.json | cut -d'"' -f6)" && cd "${path.dirname(imageGeneratorPath)}" && ./generate.sh "${prompt}" grok-imagine-image "${imagePath}"`, 
+        // Run image generation via Gemini
+        console.log('Generating header image via Gemini 2.5 Flash...');
+        execSync(`cd "${path.dirname(imageGeneratorPath)}" && ./generate.sh "${prompt.replace(/"/g, '\\"')}" "${imagePath}"`, 
                  { stdio: 'inherit', shell: '/bin/bash' });
         
-        return `images/${slug}.jpg`;
+        return `images/${slug}.png`;
     } catch (error) {
         console.warn('Image generation failed:', error.message);
         return null;

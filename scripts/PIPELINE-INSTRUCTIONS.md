@@ -117,7 +117,7 @@ Before writing an original article, thoroughly research to gather:
      --sources "Facebook Community Group,Local Reports,Community Discussion"
    ```
    
-   **Note**: The article generator automatically creates a professional header image using xAI's image generation API. The image is styled for modern news/journalism with high contrast and clean composition appropriate for Texas local government and politics coverage.
+   **Note**: The article generator automatically creates a professional header image using Google Gemini 2.5 Flash. See Image Style Rules below for the mandatory style prompt.
 
 3. **Create Feed Entry**: Add entry to the appropriate feed JSON file with:
    - `source`: "Hill Country Sentinel" (not "Facebook" or "Social Media")
@@ -130,11 +130,10 @@ Before writing an original article, thoroughly research to gather:
 **All articles must have header images.** This includes:
 
 - **New articles**: Automatically generated during article creation via `generate-article.js`
-- **Existing articles**: Use the xAI image generation tool manually if needed:
+- **Existing articles**: Use the Gemini image generation tool manually if needed:
   ```bash
-  export XAI_API_KEY="$(grep -o '"xai": {"apiKey": "[^"]*"' ~/.openclaw/openclaw.json | cut -d'"' -f6)"
-  cd tools/xai-image
-  ./generate.sh "PROMPT" grok-imagine-image articles/images/article-slug.jpg
+  cd tools/gemini-image
+  ./generate.sh "PROMPT with style suffix" articles/images/article-slug.png
   ```
 
 - **Feed entries**: Include `image` field pointing to header image path
@@ -143,28 +142,38 @@ Before writing an original article, thoroughly research to gather:
 
 **Two distinct visual systems:**
 1. **Site chrome** (header, nav, footer, branding): Woodcut/ink illustration style, sepia/navy/red palette
-2. **Article header images**: **Watercolor paint style** — soft washes, visible brush strokes, muted warm palette reminiscent of vintage Texas Hill Country watercolor paintings. Think traditional watercolor illustration, NOT photorealistic.
+2. **Article header images**: **Soft watercolor wash** — generated with Google Gemini 2.5 Flash (`gemini-2.5-flash-image`)
 
-### Image Content Rules (UPDATED Feb 14, 2026)
+### Mandatory Image Style Suffix (UPDATED Feb 16, 2026)
+
+**Append this exact style suffix to EVERY article image prompt:**
+
+```
+Soft watercolor painting style. Warm washes of sepia, muted gold, and dusty blue. Loose, impressionistic brushwork with visible paper texture and color bleeds. The edges of the painting gradually fade to pure white, with soft watercolor washes dissolving seamlessly into a clean white background on all sides. No hard borders, frames, or sharp edges.
+```
+
+### Image Generation Tool
+
+```bash
+cd tools/gemini-image
+./generate.sh "[Scene description]. Soft watercolor painting style. Warm washes of sepia, muted gold, and dusty blue. Loose, impressionistic brushwork with visible paper texture and color bleeds. The edges of the painting gradually fade to pure white, with soft watercolor washes dissolving seamlessly into a clean white background on all sides. No hard borders, frames, or sharp edges." output-path.png
+```
+
+### Image Content Rules (UPDATED Feb 16, 2026)
 
 **For watercolor/paint-style images (all article headers):**
 - ✅ CAN depict real people based on their likeness
 - ✅ CAN depict real places, landmarks, and buildings
 - ✅ CAN include signage with real names
-- ✅ Watercolor paint style — soft washes, visible brush strokes, muted warm palette
+- ✅ Edges MUST fade to pure white (#FFFFFF) — seamless blend with page background
 
 **For photorealistic images (NOT used for articles, but rule exists):**
 - ❌ Do NOT depict real people, real businesses, or real locations in photorealistic style
 
-**ALWAYS use:**
-- ✅ Watercolor paint style for all article header images
-- ✅ Imagery grounded in the actual subject of the article
-- ✅ Real candidate likenesses, real buildings, real signage where relevant
-
-**Example prompts:**
-- Article about a town hall meeting: "Watercolor painting of a generic small-town community meeting inside a rustic Texas hall, warm muted tones, visible brush strokes, no specific people or signage"
-- Article about wastewater concerns: "Watercolor painting of a Texas Hill Country river winding through green landscape with rolling hills, soft washes, muted warm palette"
-- Article about a mayoral race: "Watercolor painting of a small Texas town square with a courthouse and American flags, soft warm tones, no specific people"
+**Example prompts (scene description only — always append the style suffix above):**
+- Town hall meeting: "A heated community meeting inside a rustic Texas limestone courthouse, citizens at wooden benches facing a raised panel"
+- Wastewater concerns: "A Texas Hill Country river winding through green landscape with rolling hills and scattered live oak trees"
+- Mayoral race: "A small Texas town square with a historic courthouse, American flags, and campaign signs"
 
 ## Content Standards
 

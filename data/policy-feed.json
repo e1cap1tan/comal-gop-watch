@@ -54,54 +54,6 @@
     "image": "images/thumbs/pf-1771023743385-new-braunfels-pay-to-park-system-faces-backlash-despite-k-re.jpeg"
   },
   {
-    "id": "pf-1771004977323-wastewater-discharge-fight-moves-from-helotes-to-new-braunfe",
-    "date": "2026-02-13T17:49:37",
-    "title": "Wastewater Discharge Fight Moves from Helotes to New Braunfels",
-    "summary": "After failing approval in Helotes, a 3.1 million gallon-per-day wastewater facility is now proposed for New Braunfels near Broken Cedar Ranch. Residents fear impacts on Guadalupe River recreation and tourism economy.",
-    "source": "Hill Country Sentinel",
-    "sourceUrl": "articles/wastewater-discharge-fight-helotes-new-braunfels.html",
-    "category": "infrastructure",
-    "tags": [
-      "infrastructure",
-      "water",
-      "environment",
-      "development"
-    ]
-  },
-  {
-    "id": "pf-1771004950989-gruene-hotel-proposal-sparks-community-backlash",
-    "date": "2026-02-13T17:49:10",
-    "title": "Gruene Hotel Proposal Sparks Community Backlash",
-    "summary": "A proposed 150-unit hotel in downtown Gruene faces strong community opposition over water supply concerns and environmental impact. Local activist JoeyLynn Mesaros leads resistance as residents question infrastructure capacity.",
-    "source": "Hill Country Sentinel",
-    "sourceUrl": "articles/gruene-hotel-proposal-sparks-backlash.html",
-    "category": "infrastructure",
-    "tags": [
-      "infrastructure",
-      "development",
-      "gruene",
-      "city-council",
-      "water"
-    ]
-  },
-  {
-    "id": "pf-1770991300567-residents-demand-state-block-canyon-lake-area-wastewater-pla",
-    "date": "2026-02-13T14:01:40",
-    "title": "Residents Demand State Block Canyon Lake-Area Wastewater Plant",
-    "summary": "Comal County residents are pressing TCEQ to block a proposed wastewater treatment plant near Canyon Lake, with several calling for a development moratorium in the county.",
-    "source": "Hill Country Sentinel",
-    "sourceUrl": "articles/canyon-lake-wastewater-plant-controversy.html",
-    "category": "infrastructure",
-    "tags": [
-      "canyon-lake",
-      "wastewater",
-      "development",
-      "tceq",
-      "environment",
-      "moratorium"
-    ]
-  },
-  {
     "id": "pf-1770921933787-new-braunfels-and-comal-county-to-share-emergency-operations",
     "date": "2026-02-12T18:45:33",
     "title": "New Braunfels and Comal County to Share Emergency Operations Space",
@@ -199,41 +151,5 @@
       "new-braunfels"
     ],
     "image": "images/thumbs/pf-001.jpg"
-  },
-  {
-    "id": "pf-002",
-    "date": "2026-02-06T12:00:00",
-    "title": "Comal County Commissioners Address Growing Road Repair Needs in Budget Review",
-    "summary": "Commissioners Court reviewed a proposed $12M allocation for county road repairs, prioritizing routes in precincts 1 and 3 that have seen the most growth-related wear.",
-    "source": "Hill Country Sentinel",
-    "sourceUrl": "articles/county-road-repairs-budget-discussion.html",
-    "image": "articles/images/county-road-repairs-budget-discussion.jpg",
-    "archiveUrl": "https://co.comal.tx.us/news/budget-road-repairs-precincts",
-    "category": "county-government",
-    "tags": [
-      "budget",
-      "roads",
-      "infrastructure",
-      "commissioners-court",
-      "county-government"
-    ]
-  },
-  {
-    "id": "pf-003",
-    "date": "2026-02-03T12:00:00",
-    "title": "Comal ISD Board Examines Enhanced Parental Notification Requirements",
-    "summary": "The Comal ISD Board of Trustees discussed updates to its parental notification policies, aiming to increase transparency around curriculum changes and library material reviews.",
-    "source": "Hill Country Sentinel",
-    "sourceUrl": "articles/cisd-parental-notification-policy-review.html",
-    "image": "articles/images/cisd-parental-notification-policy-review.jpg",
-    "archiveUrl": "https://comal-isd.org/board/policies/parental-notification",
-    "category": "education",
-    "tags": [
-      "comal-isd",
-      "school-board",
-      "parental-rights",
-      "education",
-      "curriculum"
-    ]
   }
 ]

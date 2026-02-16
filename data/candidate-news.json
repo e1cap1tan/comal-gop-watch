@@ -18,37 +18,6 @@
     "image": "images/thumbs/cn-1771023777416-tom-clark-seeks-fourth-term-as-justice-of-peace-precinct-1.jpg"
   },
   {
-    "id": "cn-1771005008581-michael-french-draws-45-to-first-mayoral-town-hall",
-    "date": "2026-02-13T17:50:08",
-    "title": "Michael French Draws 45 to First Mayoral Town Hall",
-    "summary": "Mayoral candidate Michael French held his first campaign town hall at Cooper's Pit Bar-B-Que, drawing 45 residents for Q&A. French is one of 5 filed candidates with early voting starting Feb 17.",
-    "source": "Hill Country Sentinel",
-    "sourceUrl": "articles/michael-french-draws-45-first-mayoral-town-hall.html",
-    "category": "elections",
-    "tags": [
-      "elections",
-      "mayor",
-      "candidates"
-    ]
-  },
-  {
-    "id": "cn-1771002781490-deb-hindman-drops-out-of-comal-county-judge-race",
-    "date": "2026-02-13T17:13:01",
-    "title": "Deb Hindman Drops Out of Comal County Judge Race",
-    "summary": "Deb Hindman has withdrawn from the Republican primary for Comal County Judge, narrowing the race to Kristen Hoyt and Kayne Parrish. Her husband announced the decision at a packed community meeting about the Lennar development and TCEQ concerns at Canyon Lake High School. Hindman will remain on the March 3 ballot but is not running.",
-    "source": "Hill Country Sentinel",
-    "sourceUrl": "https://e1cap1tan.github.io/hill-country-sentinel/articles/deb-hindman-drops-county-judge-race.html",
-    "category": "elections",
-    "tags": [
-      "county-judge",
-      "deb-hindman",
-      "kristen-hoyt",
-      "kayne-parrish",
-      "republican-primary",
-      "2026"
-    ]
-  },
-  {
     "id": "cn-1770997423382-christi-craddick-campaigns-for-texas-comptroller-in-republic",
     "date": "2026-02-13T15:43:43",
     "title": "Christi Craddick Campaigns for Texas Comptroller in Republican Primary",
@@ -99,38 +68,6 @@
     ]
   },
   {
-    "id": "cn-1770991285156-commissioners-court-to-discuss-interim-county-judge-appointm",
-    "date": "2026-02-13T14:01:25",
-    "title": "Commissioners Court to Discuss Interim County Judge Appointment Feb 26",
-    "summary": "Comal County commissioners are expected to discuss appointing an interim county judge during their Feb 26 meeting, following Judge Sherman Krause's death on February 7.",
-    "source": "Hill Country Sentinel",
-    "sourceUrl": "articles/interim-county-judge-appointment-feb-26.html",
-    "category": "county-government",
-    "tags": [
-      "county-judge",
-      "interim-appointment",
-      "commissioners-court",
-      "vacancy",
-      "comal-county"
-    ]
-  },
-  {
-    "id": "cn-1770991271973-new-braunfels-chamber-hosts-pre-primary-candidate-forum",
-    "date": "2026-02-13T14:01:11",
-    "title": "New Braunfels Chamber Hosts Pre-Primary Candidate Forum",
-    "summary": "The New Braunfels Chamber of Commerce hosted a candidate forum featuring Republican candidates from both Comal and Guadalupe counties, including the three candidates vying for Comal County Judge.",
-    "source": "Hill Country Sentinel",
-    "sourceUrl": "articles/chamber-candidate-forum-feb-2026.html",
-    "category": "elections",
-    "tags": [
-      "chamber-of-commerce",
-      "candidate-forum",
-      "2026-election",
-      "primary",
-      "comal-county"
-    ]
-  },
-  {
     "id": "cn-1770937286104-new-braunfels-software-engineer-paul-rojas-runs-for-us-house",
     "date": "2026-02-12T23:01:26",
     "title": "New Braunfels Software Engineer Paul Rojas Runs for US House District 21",
@@ -148,24 +85,6 @@
       "2026-election"
     ],
     "image": "images/thumbs/cn-1770937286104-new-braunfels-software-engineer-paul-rojas-runs-for-us-house.jpg"
-  },
-  {
-    "id": "cn-1770921923336-comal-county-commissioner-jen-crownover-named-vp-of-texas-as",
-    "date": "2026-01-09T12:00:00",
-    "title": "Comal County Commissioner Crownover Elevated to Vice President Role at Texas Association of Counties",
-    "summary": "Precinct 4 Commissioner Jen Crownover was sworn in as vice president of the Texas Association of Counties Board of Directors, representing counties across the state in a key leadership role.",
-    "source": "Hill Country Sentinel",
-    "sourceUrl": "articles/crownover-vp-texas-counties.html",
-    "image": "articles/images/crownover-vp-texas-counties.jpg",
-    "archiveUrl": "https://www.county.org/resources/resource-library/news-and-information/news-releases/01-09-26-comal-commr-jen-crownover-vp-tac",
-    "category": "county-government",
-    "tags": [
-      "jen-crownover",
-      "tac",
-      "commissioner",
-      "leadership",
-      "county-government"
-    ]
   },
   {
     "id": "cn-1770921846507-comal-county-judge-candidates-profile-available",

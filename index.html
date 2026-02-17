@@ -10,7 +10,7 @@
     <title>Hill Country Sentinel</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/shared.css?v=14">
+    <link rel="stylesheet" href="css/shared.css?v=15">
     <style>
         /* ── Hero (Courthouse Authority) ── */
         .hero {
@@ -217,6 +217,14 @@
 
         .candidate-chip .incumbent-star {
             font-size: 12px;
+        }
+
+        .candidate-thumb {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            object-fit: cover;
+            flex-shrink: 0;
         }
 
         /* ── Unified News Feed Layout ── */
@@ -578,16 +586,28 @@
                 <div class="compact-race">
                     <h4>Comal County Commissioner Precinct 2</h4>
                     <div class="candidate-list">
-                        <div class="candidate-chip">Justin Stratemann</div>
-                        <div class="candidate-chip">Brian Minus</div>
-                        <div class="candidate-chip">Randy Rollins</div>
+                        <a href="profiles/john-stratemann.html" class="candidate-chip">
+                            <img src="images/default-person.png" alt="" class="candidate-thumb">
+                            John Stratemann
+                        </a>
+                        <a href="profiles/steve-minus.html" class="candidate-chip">
+                            <img src="images/default-person.png" alt="" class="candidate-thumb">
+                            Steve Minus
+                        </a>
+                        <a href="profiles/steven-rollins.html" class="candidate-chip">
+                            <img src="images/default-person.png" alt="" class="candidate-thumb">
+                            Steven Rollins
+                        </a>
                     </div>
                 </div>
 
                 <div class="compact-race">
                     <h4>Comal County Commissioner Precinct 4</h4>
                     <div class="candidate-list">
-                        <a href="profiles/jen-crownover.html" class="candidate-chip">Jen Crownover <span style="color: var(--text-muted);">(Unopposed)</span></a>
+                        <a href="profiles/jen-crownover.html" class="candidate-chip">
+                            <img src="images/jen-crownover.jpg" alt="" class="candidate-thumb">
+                            Jen Crownover <span style="color: var(--text-muted);">(Unopposed)</span>
+                        </a>
                     </div>
                 </div>
 
@@ -595,10 +615,11 @@
                 <div class="compact-race">
                     <h4>Justice of Peace Precinct 1</h4>
                     <div class="candidate-list">
-                        <div class="candidate-chip incumbent">
+                        <a href="profiles/tom-clark.html" class="candidate-chip incumbent">
+                            <img src="images/default-person.png" alt="" class="candidate-thumb">
                             <span class="incumbent-star">★</span>
                             Tom Clark (Incumbent)
-                        </div>
+                        </a>
                     </div>
                 </div>
 
@@ -606,10 +627,22 @@
                 <div class="compact-race">
                     <h4>Comal County Clerk</h4>
                     <div class="candidate-list">
-                        <div class="candidate-chip">Ryan Bourbon-Stuart</div>
-                        <div class="candidate-chip">Garrison Maurer</div>
-                        <div class="candidate-chip">LeAnn Miller</div>
-                        <div class="candidate-chip">Romelle 'Melle' Walkup</div>
+                        <a href="profiles/ryan-bourbon-stuart.html" class="candidate-chip">
+                            <img src="images/default-person.png" alt="" class="candidate-thumb">
+                            Ryan Bourbon-Stuart
+                        </a>
+                        <a href="profiles/garrison-maurer.html" class="candidate-chip">
+                            <img src="images/default-person.png" alt="" class="candidate-thumb">
+                            Garrison Maurer
+                        </a>
+                        <a href="profiles/leann-miller.html" class="candidate-chip">
+                            <img src="images/default-person.png" alt="" class="candidate-thumb">
+                            LeAnn Miller
+                        </a>
+                        <a href="profiles/romelle-walkup.html" class="candidate-chip">
+                            <img src="images/default-person.png" alt="" class="candidate-thumb">
+                            Romelle "Melle" Walkup
+                        </a>
                     </div>
                 </div>
 
@@ -617,8 +650,14 @@
                 <div class="compact-race">
                     <h4>Comal County Judge <span style="color: var(--red);">(Vacant after Krause's passing)</span></h4>
                     <div class="candidate-list">
-                        <div class="candidate-chip">Kristen Hoyt</div>
-                        <div class="candidate-chip">Kayne Parrish</div>
+                        <a href="profiles/kristen-hoyt.html" class="candidate-chip">
+                            <img src="images/default-person.png" alt="" class="candidate-thumb">
+                            Kristen Hoyt
+                        </a>
+                        <a href="profiles/kayne-parrish.html" class="candidate-chip">
+                            <img src="images/default-person.png" alt="" class="candidate-thumb">
+                            Kayne Parrish
+                        </a>
                     </div>
                 </div>
 
@@ -626,8 +665,14 @@
                 <div class="compact-race">
                     <h4>US House District 21 (Republican Primary)</h4>
                     <div class="candidate-list">
-                        <div class="candidate-chip">Mark Teixeira</div>
-                        <div class="candidate-chip">Paul Rojas</div>
+                        <a href="profiles/mark-teixeira.html" class="candidate-chip">
+                            <img src="images/default-person.png" alt="" class="candidate-thumb">
+                            Mark Teixeira
+                        </a>
+                        <a href="profiles/paul-rojas.html" class="candidate-chip">
+                            <img src="images/default-person.png" alt="" class="candidate-thumb">
+                            Paul Rojas
+                        </a>
                         <div class="candidate-chip">Others</div>
                     </div>
                 </div>
@@ -641,13 +686,26 @@
                     <h4>Mayor — New Braunfels</h4>
                     <div class="candidate-list">
                         <a href="profiles/neal-linnartz.html" class="candidate-chip incumbent">
+                            <img src="images/neal-linnartz.jpg" alt="" class="candidate-thumb">
                             <span class="incumbent-star">★</span>
                             Neal Linnartz
                         </a>
-                        <a href="profiles/michael-french.html" class="candidate-chip">Michael French</a>
-                        <a href="profiles/bradley-porter.html" class="candidate-chip">Bradley Porter</a>
-                        <a href="profiles/angela-allen.html" class="candidate-chip">Angela Allen</a>
-                        <a href="profiles/jonathon-frazier.html" class="candidate-chip">Jonathon Frazier</a>
+                        <a href="profiles/michael-french.html" class="candidate-chip">
+                            <img src="images/michael-french.jpg" alt="" class="candidate-thumb">
+                            Michael French
+                        </a>
+                        <a href="profiles/bradley-porter.html" class="candidate-chip">
+                            <img src="images/default-person.png" alt="" class="candidate-thumb">
+                            Bradley Porter
+                        </a>
+                        <a href="profiles/angela-allen.html" class="candidate-chip">
+                            <img src="images/angela-allen.jpg" alt="" class="candidate-thumb">
+                            Angela Allen
+                        </a>
+                        <a href="profiles/jonathon-frazier.html" class="candidate-chip">
+                            <img src="images/default-person.png" alt="" class="candidate-thumb">
+                            Jonathon Frazier
+                        </a>
                     </div>
                 </div>
 
@@ -655,6 +713,7 @@
                     <h4>City Council District 5</h4>
                     <div class="candidate-list">
                         <a href="profiles/mary-ann-labowski.html" class="candidate-chip incumbent">
+                            <img src="images/mary-ann-labowski.jpg" alt="" class="candidate-thumb">
                             <span class="incumbent-star">★</span>
                             Mary Ann Labowski <span style="color: var(--text-muted);">(No challengers yet)</span>
                         </a>
@@ -665,6 +724,7 @@
                     <h4>City Council District 6</h4>
                     <div class="candidate-list">
                         <a href="profiles/april-ryan.html" class="candidate-chip incumbent">
+                            <img src="images/april-ryan.jpg" alt="" class="candidate-thumb">
                             <span class="incumbent-star">★</span>
                             April Ryan <span style="color: var(--text-muted);">(No challengers yet)</span>
                         </a>
@@ -680,6 +740,7 @@
                     <h4>State Representative District 73</h4>
                     <div class="candidate-list">
                         <a href="profiles/carrie-isaac.html" class="candidate-chip incumbent">
+                            <img src="images/carrie-isaac.jpg" alt="" class="candidate-thumb">
                             <span class="incumbent-star">★</span>
                             Carrie Isaac (R)
                         </a>
@@ -691,6 +752,7 @@
                     <h4>State Senator District 25</h4>
                     <div class="candidate-list">
                         <a href="profiles/donna-campbell.html" class="candidate-chip incumbent">
+                            <img src="images/donna-campbell.jpg" alt="" class="candidate-thumb">
                             <span class="incumbent-star">★</span>
                             Donna Campbell (R)
                         </a>

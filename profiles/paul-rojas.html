@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paul Rojas — Hill Country Sentinel</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/shared.css?v=9">
+    <style>
+        .container { max-width: 900px; margin: 0 auto; padding: 40px 24px; }
+        .back-link { display: inline-flex; align-items: center; gap: 8px; color: var(--navy); text-decoration: none; font-weight: 600; font-size: 14px; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 32px; transition: color 0.2s; }
+        .back-link:hover { color: var(--red); }
+        .profile-header { display: flex; gap: 32px; align-items: flex-start; margin-bottom: 40px; }
+        .profile-photo { width: 160px; height: 160px; border-radius: 12px; overflow: hidden; flex-shrink: 0; background: linear-gradient(135deg, var(--navy-light), var(--navy)); display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.4); box-shadow: 0 4px 16px rgba(0,0,0,0.12); }
+        .profile-photo img { width: 100%; height: 100%; object-fit: cover; }
+        .avatar-placeholder { color: rgba(255,255,255,0.4); }
+        .profile-info h1 { font-size: 36px; color: var(--navy); margin-bottom: 4px; }
+        .profile-info .title { font-size: 18px; color: var(--gold); font-weight: 600; margin-bottom: 12px; }
+        .profile-info .details { font-size: 14px; color: var(--text-muted); line-height: 2; }
+        .section { background: var(--white); border-radius: 12px; padding: 28px; margin-bottom: 20px; border: 1px solid var(--border); box-shadow: 0 1px 4px rgba(0,0,0,0.06); }
+        .section h2 { font-size: 22px; color: var(--navy); margin-bottom: 16px; padding-bottom: 12px; border-bottom: 2px solid var(--gold); }
+        .section p { color: var(--text); }
+        .section a { color: var(--red); font-weight: 600; }
+        .section a:hover { text-decoration: underline; }
+        .placeholder { color: var(--text-muted); font-style: italic; }
+        .no-activity { color: var(--text-muted); font-style: italic; }
+        #candidate-activity .feed-card { background: var(--cream); border-radius: 8px; padding: 16px; margin-bottom: 12px; border: 1px solid var(--border); }
+        #candidate-activity .feed-card-title { font-size: 16px; color: var(--navy); margin-bottom: 4px; }
+        #candidate-activity .feed-card-date { font-size: 12px; color: var(--text-muted); margin-bottom: 4px; }
+        #candidate-activity .feed-card-summary { font-size: 14px; color: var(--text); }
+        #candidate-activity .feed-card-source { font-size: 12px; color: var(--red); }
+        @media (max-width: 900px) {
+            .profile-header { flex-direction: column; align-items: center; text-align: center; }
+            .profile-info h1 { font-size: 28px; }
+        }
+    </style>
+</head>
+<body data-candidate-slug="paul-rojas">
+    <div id="site-nav"></div>
+    <div class="container">
+        <a href="../index.html" class="back-link">← Back to Home</a>
+        <div class="profile-header">
+            <div class="profile-photo"><img src="../images/default-person.png" alt="Paul Rojas"></div>
+            <div class="profile-info">
+                <h1>Paul Rojas</h1>
+                <div class="title">Candidate for U.S. House District 21</div>
+                <div class="details">Party: Republican<br>Office: U.S. House of Representatives, Texas District 21<br>Background: Engineer, Small Business Owner<br>Election: March 3, 2026 Republican Primary</div>
+            </div>
+        </div>
+        <div class="section">
+            <h2>Biography</h2>
+            <p>Paul Rojas, born in 1987, is an engineer, small business owner, and lifelong Texan running for the U.S. House of Representatives to represent Texas' 21st Congressional District. He describes himself as one of the youngest candidates in the race and "the only one who's actually built something outside of politics."</p>
+            <p>Rojas founded Alamo Brass, a small business, and has worked in technology with major companies including Microsoft and Cisco. His first job was with Geek Squad at age 17, where he worked for five years fixing computers and managing service projects. This early experience taught him problem-solving under pressure and customer service skills that he says shaped his leadership approach.</p>
+            <p>One of his notable professional accomplishments includes working on the NASA Lunar Reconnaissance Orbiter's LAMP project, which helped confirm the presence of water on the lunar poles. This discovery changed how scientists think about future space exploration and missions that could sustain human life beyond Earth.</p>
+            <p>Rojas positions himself as an outsider to politics, emphasizing his background in real work and business ownership. He has raised $165,026 for his campaign with minimal spending, maintaining over $156,000 in cash on hand.</p>
+        </div>
+        <div class="section">
+            <h2>Contact &amp; Official Links</h2>
+            <p class="placeholder">Campaign website and contact information coming soon.</p>
+        </div>
+        <div class="section">
+            <h2>Voting Record &amp; Positions</h2>
+            <p>Rojas's platform centers on rebuilding the American middle class and putting working people first. His key positions include:</p>
+            <p><strong>Congressional Reform:</strong> Strongly supports term limits to end career politicians, eliminate insider trading by members of Congress, and hold representatives to the same standards as working Americans.</p>
+            <p><strong>Economic Policy:</strong> Focus on supporting small businesses, rebuilding domestic manufacturing, and making homeownership more accessible for families. Advocates for cutting red tape that hurts local businesses.</p>
+            <p><strong>Technology & Energy:</strong> Believes AI and data centers should create local jobs rather than just consuming Texas resources. Supports ensuring technology serves people rather than replacing them, and wants innovation to strengthen the power grid.</p>
+            <p><strong>Election Security:</strong> Supports strong voter identification, clean voter rolls, paper ballot backups, and transparent election processes to rebuild trust in elections.</p>
+            <p><strong>Border Security:</strong> Advocates for securing the border and protecting constitutional rights while supporting law enforcement.</p>
+            <p>Rojas draws inspiration from leaders like Ron Paul, whom he admires for standing on principle and speaking plainly even when unpopular.</p>
+        </div>
+        <div class="section">
+            <h2>Recent Activity</h2>
+            <div id="candidate-activity">
+                <p class="no-activity">Loading recent activity...</p>
+            </div>
+        </div>
+    </div>
+    <div id="site-footer"></div>
+    <script src="../js/utils.js?v=9"></script>
+    <script src="../js/feed-renderer.js?v=10"></script>
+    <script src="../js/layout.js?v=10"></script>
+    <script src="../js/profile-feed.js?v=9"></script>
+
+    <script>
+        // Initialize auto-linking for candidate names in profile content
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(function() {
+                initAutoLinking([
+                    '.section',
+                    '#candidate-activity'
+                ], '../');
+            }, 1000); // Wait for profile feed to load
+        });
+    </script>
+</body>
+</html>

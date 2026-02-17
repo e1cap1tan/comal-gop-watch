@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LeAnn Miller — Hill Country Sentinel</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/shared.css?v=9">
+    <style>
+        .container { max-width: 900px; margin: 0 auto; padding: 40px 24px; }
+        .back-link { display: inline-flex; align-items: center; gap: 8px; color: var(--navy); text-decoration: none; font-weight: 600; font-size: 14px; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 32px; transition: color 0.2s; }
+        .back-link:hover { color: var(--red); }
+        .profile-header { display: flex; gap: 32px; align-items: flex-start; margin-bottom: 40px; }
+        .profile-photo { width: 160px; height: 160px; border-radius: 12px; overflow: hidden; flex-shrink: 0; background: linear-gradient(135deg, var(--navy-light), var(--navy)); display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.4); box-shadow: 0 4px 16px rgba(0,0,0,0.12); }
+        .profile-photo img { width: 100%; height: 100%; object-fit: cover; }
+        .avatar-placeholder { color: rgba(255,255,255,0.4); }
+        .profile-info h1 { font-size: 36px; color: var(--navy); margin-bottom: 4px; }
+        .profile-info .title { font-size: 18px; color: var(--gold); font-weight: 600; margin-bottom: 12px; }
+        .profile-info .details { font-size: 14px; color: var(--text-muted); line-height: 2; }
+        .section { background: var(--white); border-radius: 12px; padding: 28px; margin-bottom: 20px; border: 1px solid var(--border); box-shadow: 0 1px 4px rgba(0,0,0,0.06); }
+        .section h2 { font-size: 22px; color: var(--navy); margin-bottom: 16px; padding-bottom: 12px; border-bottom: 2px solid var(--gold); }
+        .section p { color: var(--text); }
+        .section a { color: var(--red); font-weight: 600; }
+        .section a:hover { text-decoration: underline; }
+        .placeholder { color: var(--text-muted); font-style: italic; }
+        .no-activity { color: var(--text-muted); font-style: italic; }
+        #candidate-activity .feed-card { background: var(--cream); border-radius: 8px; padding: 16px; margin-bottom: 12px; border: 1px solid var(--border); }
+        #candidate-activity .feed-card-title { font-size: 16px; color: var(--navy); margin-bottom: 4px; }
+        #candidate-activity .feed-card-date { font-size: 12px; color: var(--text-muted); margin-bottom: 4px; }
+        #candidate-activity .feed-card-summary { font-size: 14px; color: var(--text); }
+        #candidate-activity .feed-card-source { font-size: 12px; color: var(--red); }
+        @media (max-width: 900px) {
+            .profile-header { flex-direction: column; align-items: center; text-align: center; }
+            .profile-info h1 { font-size: 28px; }
+        }
+    </style>
+</head>
+<body data-candidate-slug="leann-miller">
+    <div id="site-nav"></div>
+    <div class="container">
+        <a href="../index.html" class="back-link">← Back to Home</a>
+        <div class="profile-header">
+            <div class="profile-photo"><img src="../images/default-person.png" alt="LeAnn Miller"></div>
+            <div class="profile-info">
+                <h1>LeAnn Miller</h1>
+                <div class="title">Candidate for Comal County Clerk</div>
+                <div class="details">Party: Republican<br>Office: Comal County Clerk<br>Background: Principal, New Braunfels<br>Election: March 3, 2026 Republican Primary</div>
+            </div>
+        </div>
+        <div class="section">
+            <h2>Biography</h2>
+            <p>LeAnn Miller is a principal from New Braunfels running for Comal County Clerk in the 2026 Republican primary. She is one of three remaining Republican candidates seeking to fill the position being vacated by incumbent County Clerk Bobbie Koepp, who decided not to seek reelection.</p>
+            <p>Miller's background as a school principal provides her with significant administrative experience, including managing complex organizations, overseeing record-keeping systems, supervising staff, and serving diverse communities—all skills directly relevant to the County Clerk's responsibilities. Her experience in education also demonstrates her commitment to public service and working with government systems.</p>
+            <p>As a principal, Miller has experience with compliance, regulatory requirements, public accountability, and managing sensitive information—capabilities that translate well to the County Clerk's role of maintaining official county records, overseeing elections administration, issuing licenses and permits, and serving as a key interface between county government and the public.</p>
+            <p>She faces competition in the Republican primary from Ryan Bourbon-Stuart (client services associate) and Garrison Maurer (business owner), with no Democratic candidates filing for the position, making the Republican primary the decisive election for this office.</p>
+            <p>This biography is based on limited available public information. Additional details about Miller's specific educational leadership experience, community involvement, and policy positions will be updated as more information becomes available.</p>
+        </div>
+        <div class="section">
+            <h2>Contact &amp; Official Links</h2>
+            <p class="placeholder">Campaign website and contact information coming soon.</p>
+        </div>
+        <div class="section">
+            <h2>Voting Record &amp; Positions</h2>
+            <p class="placeholder">Policy positions and platform details coming soon.</p>
+        </div>
+        <div class="section">
+            <h2>Recent Activity</h2>
+            <div id="candidate-activity">
+                <p class="no-activity">Loading recent activity...</p>
+            </div>
+        </div>
+    </div>
+    <div id="site-footer"></div>
+    <script src="../js/utils.js?v=9"></script>
+    <script src="../js/feed-renderer.js?v=10"></script>
+    <script src="../js/layout.js?v=10"></script>
+    <script src="../js/profile-feed.js?v=9"></script>
+
+    <script>
+        // Initialize auto-linking for candidate names in profile content
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(function() {
+                initAutoLinking([
+                    '.section',
+                    '#candidate-activity'
+                ], '../');
+            }, 1000); // Wait for profile feed to load
+        });
+    </script>
+</body>
+</html>

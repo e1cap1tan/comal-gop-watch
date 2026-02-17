@@ -11,7 +11,8 @@
       "county-commissioner",
       "comal-county",
       "stratemann"
-    ]
+    ],
+    "relatedCandidate": "john-stratemann"
   },
   {
     "id": "cn-1771346875499-candidate-filing-for-city-council-positions-now-open-to-new-",
@@ -40,7 +41,8 @@
       "michael-french",
       "town-hall"
     ],
-    "image": "articles/images/michael-french-draws-45-to-first-mayoral-town-hall.png"
+    "image": "articles/images/michael-french-draws-45-to-first-mayoral-town-hall.png",
+    "relatedCandidate": "michael-french"
   },
   {
     "id": "cn-1771023777416-tom-clark-seeks-fourth-term-as-justice-of-peace-precinct-1",
@@ -48,6 +50,7 @@
     "title": "Tom Clark Seeks Fourth Term as Justice of Peace Precinct 1",
     "summary": "Justice of Peace Tom Clark, a third-generation Comal County resident who was born and raised in New Braunfels, is seeking his fourth term representing Precinct 1. Early voting begins February 17 with election day March 3.",
     "source": "Herald-Zeitung",
+    "relatedCandidate": "tom-clark",
     "sourceUrl": "https://herald-zeitung.com/election/2026-elections-meet-your-candidates-for-comal-county-justice-of-the-peace-precincts-1-2/article_4af96dba-d801-4ae8-8cbd-f14aa23ec29d.html",
     "archiveUrl": "articles/archive/tom-clark-jp-precinct-1-fourth-term.html",
     "category": "elections",

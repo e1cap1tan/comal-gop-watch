@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Romelle Walkup — Hill Country Sentinel</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/shared.css?v=9">
+    <style>
+        .container { max-width: 900px; margin: 0 auto; padding: 40px 24px; }
+        .back-link { display: inline-flex; align-items: center; gap: 8px; color: var(--navy); text-decoration: none; font-weight: 600; font-size: 14px; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 32px; transition: color 0.2s; }
+        .back-link:hover { color: var(--red); }
+        .profile-header { display: flex; gap: 32px; align-items: flex-start; margin-bottom: 40px; }
+        .profile-photo { width: 160px; height: 160px; border-radius: 12px; overflow: hidden; flex-shrink: 0; background: linear-gradient(135deg, var(--navy-light), var(--navy)); display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.4); box-shadow: 0 4px 16px rgba(0,0,0,0.12); }
+        .profile-photo img { width: 100%; height: 100%; object-fit: cover; }
+        .avatar-placeholder { color: rgba(255,255,255,0.4); }
+        .profile-info h1 { font-size: 36px; color: var(--navy); margin-bottom: 4px; }
+        .profile-info .title { font-size: 18px; color: var(--gold); font-weight: 600; margin-bottom: 12px; }
+        .profile-info .details { font-size: 14px; color: var(--text-muted); line-height: 2; }
+        .section { background: var(--white); border-radius: 12px; padding: 28px; margin-bottom: 20px; border: 1px solid var(--border); box-shadow: 0 1px 4px rgba(0,0,0,0.06); }
+        .section h2 { font-size: 22px; color: var(--navy); margin-bottom: 16px; padding-bottom: 12px; border-bottom: 2px solid var(--gold); }
+        .section p { color: var(--text); }
+        .section a { color: var(--red); font-weight: 600; }
+        .section a:hover { text-decoration: underline; }
+        .placeholder { color: var(--text-muted); font-style: italic; }
+        .no-activity { color: var(--text-muted); font-style: italic; }
+        .withdrawn-notice { background: #ffeaa7; border: 2px solid #fdcb6e; border-radius: 8px; padding: 16px; margin-bottom: 20px; }
+        .withdrawn-notice h3 { color: #e17055; margin: 0 0 8px 0; font-size: 16px; font-weight: 700; }
+        .withdrawn-notice p { color: #636e72; margin: 0; }
+        #candidate-activity .feed-card { background: var(--cream); border-radius: 8px; padding: 16px; margin-bottom: 12px; border: 1px solid var(--border); }
+        #candidate-activity .feed-card-title { font-size: 16px; color: var(--navy); margin-bottom: 4px; }
+        #candidate-activity .feed-card-date { font-size: 12px; color: var(--text-muted); margin-bottom: 4px; }
+        #candidate-activity .feed-card-summary { font-size: 14px; color: var(--text); }
+        #candidate-activity .feed-card-source { font-size: 12px; color: var(--red); }
+        @media (max-width: 900px) {
+            .profile-header { flex-direction: column; align-items: center; text-align: center; }
+            .profile-info h1 { font-size: 28px; }
+        }
+    </style>
+</head>
+<body data-candidate-slug="romelle-walkup">
+    <div id="site-nav"></div>
+    <div class="container">
+        <a href="../index.html" class="back-link">← Back to Home</a>
+        
+        <div class="withdrawn-notice">
+            <h3>⚠️ Candidate Has Withdrawn</h3>
+            <p>Romelle Walkup has withdrawn from the race for Comal County Clerk.</p>
+        </div>
+
+        <div class="profile-header">
+            <div class="profile-photo"><img src="../images/default-person.png" alt="Romelle Walkup"></div>
+            <div class="profile-info">
+                <h1>Romelle "Melle" Walkup</h1>
+                <div class="title">Former Candidate for Comal County Clerk (Withdrawn)</div>
+                <div class="details">Party: Republican<br>Office: Comal County Clerk (Withdrawn)<br>Background: Manager II Deputy to County Clerk, New Braunfels<br>Election: March 3, 2026 Republican Primary</div>
+            </div>
+        </div>
+        <div class="section">
+            <h2>Biography</h2>
+            <p>Romelle "Melle" Walkup was initially a candidate for Comal County Clerk in the 2026 Republican primary but has since withdrawn from the race. She served as Manager II Deputy to the County Clerk in New Braunfels, giving her direct experience with the operations and responsibilities of the County Clerk's office.</p>
+            <p>Walkup's background as a deputy to the county clerk positioned her as someone with insider knowledge of the office's daily operations, record-keeping systems, and public service requirements. Her experience would have included handling various administrative duties, maintaining official records, and assisting with the issuance of licenses and permits.</p>
+            <p>Despite her relevant experience and inside knowledge of the position, Walkup decided to withdraw from the race, leaving three remaining Republican candidates: Ryan Bourbon-Stuart, Garrison Maurer, and LeAnn Miller to compete for the position being vacated by incumbent Bobbie Koepp.</p>
+            <p>This information is based on available public sources and filing records. The specific reasons for her withdrawal have not been publicly disclosed.</p>
+        </div>
+        <div class="section">
+            <h2>Contact &amp; Official Links</h2>
+            <p class="placeholder">No longer applicable due to withdrawal from race.</p>
+        </div>
+        <div class="section">
+            <h2>Voting Record &amp; Positions</h2>
+            <p class="placeholder">Campaign positions no longer applicable due to withdrawal from race.</p>
+        </div>
+        <div class="section">
+            <h2>Recent Activity</h2>
+            <div id="candidate-activity">
+                <p class="no-activity">Loading recent activity...</p>
+            </div>
+        </div>
+    </div>
+    <div id="site-footer"></div>
+    <script src="../js/utils.js?v=9"></script>
+    <script src="../js/feed-renderer.js?v=10"></script>
+    <script src="../js/layout.js?v=10"></script>
+    <script src="../js/profile-feed.js?v=9"></script>
+
+    <script>
+        // Initialize auto-linking for candidate names in profile content
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(function() {
+                initAutoLinking([
+                    '.section',
+                    '#candidate-activity'
+                ], '../');
+            }, 1000); // Wait for profile feed to load
+        });
+    </script>
+</body>
+</html>

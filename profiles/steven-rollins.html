@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Steven Rollins — Hill Country Sentinel</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/shared.css?v=9">
+    <style>
+        .container { max-width: 900px; margin: 0 auto; padding: 40px 24px; }
+        .back-link { display: inline-flex; align-items: center; gap: 8px; color: var(--navy); text-decoration: none; font-weight: 600; font-size: 14px; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 32px; transition: color 0.2s; }
+        .back-link:hover { color: var(--red); }
+        .profile-header { display: flex; gap: 32px; align-items: flex-start; margin-bottom: 40px; }
+        .profile-photo { width: 160px; height: 160px; border-radius: 12px; overflow: hidden; flex-shrink: 0; background: linear-gradient(135deg, var(--navy-light), var(--navy)); display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.4); box-shadow: 0 4px 16px rgba(0,0,0,0.12); }
+        .profile-photo img { width: 100%; height: 100%; object-fit: cover; }
+        .avatar-placeholder { color: rgba(255,255,255,0.4); }
+        .profile-info h1 { font-size: 36px; color: var(--navy); margin-bottom: 4px; }
+        .profile-info .title { font-size: 18px; color: var(--gold); font-weight: 600; margin-bottom: 12px; }
+        .profile-info .details { font-size: 14px; color: var(--text-muted); line-height: 2; }
+        .section { background: var(--white); border-radius: 12px; padding: 28px; margin-bottom: 20px; border: 1px solid var(--border); box-shadow: 0 1px 4px rgba(0,0,0,0.06); }
+        .section h2 { font-size: 22px; color: var(--navy); margin-bottom: 16px; padding-bottom: 12px; border-bottom: 2px solid var(--gold); }
+        .section p { color: var(--text); }
+        .section a { color: var(--red); font-weight: 600; }
+        .section a:hover { text-decoration: underline; }
+        .placeholder { color: var(--text-muted); font-style: italic; }
+        .no-activity { color: var(--text-muted); font-style: italic; }
+        #candidate-activity .feed-card { background: var(--cream); border-radius: 8px; padding: 16px; margin-bottom: 12px; border: 1px solid var(--border); }
+        #candidate-activity .feed-card-title { font-size: 16px; color: var(--navy); margin-bottom: 4px; }
+        #candidate-activity .feed-card-date { font-size: 12px; color: var(--text-muted); margin-bottom: 4px; }
+        #candidate-activity .feed-card-summary { font-size: 14px; color: var(--text); }
+        #candidate-activity .feed-card-source { font-size: 12px; color: var(--red); }
+        @media (max-width: 900px) {
+            .profile-header { flex-direction: column; align-items: center; text-align: center; }
+            .profile-info h1 { font-size: 28px; }
+        }
+    </style>
+</head>
+<body data-candidate-slug="steven-rollins">
+    <div id="site-nav"></div>
+    <div class="container">
+        <a href="../index.html" class="back-link">← Back to Home</a>
+        <div class="profile-header">
+            <div class="profile-photo"><img src="../images/default-person.png" alt="Steven Rollins"></div>
+            <div class="profile-info">
+                <h1>Steven Rollins</h1>
+                <div class="title">Candidate for Comal County Commissioner Precinct 2</div>
+                <div class="details">Party: Republican<br>Office: Comal County Commissioner Precinct 2<br>Background: Retired U.S. Navy/Property, Bulverde<br>Election: March 3, 2026 Republican Primary</div>
+            </div>
+        </div>
+        <div class="section">
+            <h2>Biography</h2>
+            <p>Steven Rollins is a retired U.S. Navy veteran and property professional from Bulverde running for Comal County Commissioner Precinct 2. His military background provides him with leadership experience and public service credentials as he seeks to represent the communities of Precinct 2.</p>
+            <p>Rollins brings a unique perspective to the race as the candidate from Bulverde, representing the outer areas of the precinct that have been mentioned by other candidates as needing better support and representation. His background in property work connects him to real estate and development issues that are significant concerns in the rapidly growing county.</p>
+            <p>As one of three Republican candidates in this competitive primary race alongside John Stratemann and Steve Minus, Rollins participated in the New Braunfels Chamber of Commerce candidate forum, presenting his case to local voters ahead of the March 3, 2026 election.</p>
+            <p>This biography is based on limited available public information. Additional details about Rollins's specific military service, property business experience, and detailed policy positions will be updated as more information becomes available.</p>
+        </div>
+        <div class="section">
+            <h2>Contact &amp; Official Links</h2>
+            <p class="placeholder">Campaign website and contact information coming soon.</p>
+        </div>
+        <div class="section">
+            <h2>Voting Record &amp; Positions</h2>
+            <p>Rollins's background as a retired U.S. Navy veteran suggests experience with leadership, logistics, and service to country. His work in property indicates familiarity with land use, development, and real estate issues that are important to Comal County's growth management.</p>
+            <p class="placeholder">Additional policy positions and platform details coming soon.</p>
+        </div>
+        <div class="section">
+            <h2>Recent Activity</h2>
+            <div id="candidate-activity">
+                <p class="no-activity">Loading recent activity...</p>
+            </div>
+        </div>
+    </div>
+    <div id="site-footer"></div>
+    <script src="../js/utils.js?v=9"></script>
+    <script src="../js/feed-renderer.js?v=10"></script>
+    <script src="../js/layout.js?v=10"></script>
+    <script src="../js/profile-feed.js?v=9"></script>
+
+    <script>
+        // Initialize auto-linking for candidate names in profile content
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(function() {
+                initAutoLinking([
+                    '.section',
+                    '#candidate-activity'
+                ], '../');
+            }, 1000); // Wait for profile feed to load
+        });
+    </script>
+</body>
+</html>

@@ -30,6 +30,6 @@
     "25": {"name": "Donna Campbell", "party": "R", "profileSlug": "donna-campbell"}
   },
   "congressional": {
-    "21": {"name": "Chip Roy (running for TX AG)", "party": "R"}
+    "21": {"name": "Chip Roy", "party": "R", "profileSlug": "chip-roy"}
   }
 }

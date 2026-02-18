@@ -1,33 +1,33 @@
 {
   "updated": "2026-02-18T15:00:00-06:00",
   "commissioner": {
-    "1": {"name": "Doug Leecock", "party": "R", "election": null},
-    "2": {"name": "Scott Haag", "party": "R", "election": "May 2026"},
-    "3": {"name": "Kevin Webb", "party": "R", "election": null},
-    "4": {"name": "Jen Crownover", "party": "R", "election": "May 2026"}
+    "1": {"name": "Doug Leecock", "party": "R", "election": null, "profileSlug": "doug-leecock"},
+    "2": {"name": "Scott Haag", "party": "R", "election": "May 2026", "profileSlug": "scott-haag"},
+    "3": {"name": "Kevin Webb", "party": "R", "election": null, "profileSlug": "kevin-webb"},
+    "4": {"name": "Jen Crownover", "party": "R", "election": "May 2026", "profileSlug": "jen-crownover"}
   },
   "jp": {
-    "1": {"name": "Tom Clark", "party": "R", "election": "Mar 2026"},
+    "1": {"name": "Tom Clark", "party": "R", "election": "Mar 2026", "profileSlug": "tom-clark"},
     "2": {"name": "James \"Rick\" Walker", "party": "R", "election": "May 2026"},
     "3": {"name": "Mark Long (interim)", "party": "R", "election": "Mar 2026"},
     "4": {"name": "Ashley Rae Evans", "party": "R", "election": "Mar 2026"}
   },
   "cityCouncil": {
-    "1": {"name": "Toni Carter", "party": null, "election": null},
-    "2": {"name": "Michael Capizzi", "party": null, "election": null},
-    "3": {"name": "D. Lee Edwards", "party": null, "election": null},
-    "4": {"name": "Lawrence Spradley", "party": null, "election": null},
-    "5": {"name": "Mary Ann Labowski", "party": null, "election": "May 2026"},
-    "6": {"name": "April Ryan", "party": null, "election": "May 2026"},
+    "1": {"name": "Toni Carter", "party": null, "election": null, "profileSlug": "toni-carter"},
+    "2": {"name": "Michael Capizzi", "party": null, "election": null, "profileSlug": "michael-capizzi"},
+    "3": {"name": "D. Lee Edwards", "party": null, "election": null, "profileSlug": "d-lee-edwards"},
+    "4": {"name": "Lawrence Spradley", "party": null, "election": null, "profileSlug": "lawrence-spradley"},
+    "5": {"name": "Mary Ann Labowski", "party": null, "election": "May 2026", "profileSlug": "mary-ann-labowski"},
+    "6": {"name": "April Ryan", "party": null, "election": "May 2026", "profileSlug": "april-ryan"},
     "7": {"name": "[District 7 appears to not exist]", "party": null, "election": null},
-    "mayor": {"name": "Neal Linnartz", "party": null, "election": "May 2026"}
+    "mayor": {"name": "Neal Linnartz", "party": null, "election": "May 2026", "profileSlug": "neal-linnartz"}
   },
   "stateHouse": {
     "45": {"name": "Erin Zwiener", "party": "D"},
-    "73": {"name": "Carrie Isaac", "party": "R"}
+    "73": {"name": "Carrie Isaac", "party": "R", "profileSlug": "carrie-isaac"}
   },
   "stateSenate": {
-    "25": {"name": "Donna Campbell", "party": "R"}
+    "25": {"name": "Donna Campbell", "party": "R", "profileSlug": "donna-campbell"}
   },
   "congressional": {
     "21": {"name": "Chip Roy (running for TX AG)", "party": "R"}

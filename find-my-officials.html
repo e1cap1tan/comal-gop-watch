@@ -285,7 +285,7 @@
 </head>
 <body>
     <!-- Navigation will be injected by layout.js -->
-    <div id="nav-placeholder"></div>
+    <div id="site-nav"></div>
     
     <!-- Hero Section -->
     <section class="hero">
@@ -332,7 +332,7 @@
     <!-- JavaScript Libraries -->
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script src="https://unpkg.com/@turf/turf@6/turf.min.js"></script>
-    <script src="js/layout.js"></script>
+    <script src="js/layout.js?v=10"></script>
     
     <script>
         // Find My Officials JavaScript
@@ -614,32 +614,30 @@
             // Voting Precinct
             if (districts.voting) {
                 html += createDistrictCard('🗳️', `Voting Precinct ${districts.voting}`, 
-                    'Your designated polling location precinct', null, null, null);
+                    'Your designated polling location precinct', null, null, null, null);
             }
             
             // Commissioner Precinct
             if (districts.commissioner && officials.commissioner[districts.commissioner]) {
                 const official = officials.commissioner[districts.commissioner];
                 html += createDistrictCard('🏛️', `Commissioner Precinct ${districts.commissioner}`, 
-                    official.name, official.party, official.election, null);
+                    official.name, official.party, official.election, null, official.profileSlug);
             }
             
             // New Braunfels City Council
             if (districts.nbCityCouncil) {
                 const councilInfo = districts.nbCityCouncil;
                 const profileSlug = getProfileSlug(councilInfo.repName);
-                const profileLink = profileSlug ? `profiles/${profileSlug}.html` : null;
                 const election = councilInfo.termExpiry === 'May 2026' ? 'May 2026' : null;
                 
                 html += createDistrictCard('🏙️', `New Braunfels City Council — District ${councilInfo.district}`, 
-                    `Rep: ${councilInfo.repName}, term expires ${councilInfo.termExpiry}`, null, election, profileLink);
+                    `Rep: ${councilInfo.repName}, term expires ${councilInfo.termExpiry}`, null, election, null, profileSlug);
                 
                 // Add Mayor card
-                const mayorProfileLink = `profiles/neal-linnartz.html`;
                 const mayorElection = councilInfo.mayorTermExpiry === 'May 2026' ? 'May 2026' : null;
                 
                 html += createDistrictCard('🎖️', 'Mayor of New Braunfels', 
-                    `${councilInfo.mayorName}, term expires ${councilInfo.mayorTermExpiry}`, null, mayorElection, mayorProfileLink);
+                    `${councilInfo.mayorName}, term expires ${councilInfo.mayorTermExpiry}`, null, mayorElection, null, 'neal-linnartz');
             } else if (districts.commissioner || districts.voting) {
                 // Address is in Comal County but outside NB city limits
                 html += `
@@ -657,34 +655,34 @@
             if (districts.stateHouse && officials.stateHouse[districts.stateHouse]) {
                 const official = officials.stateHouse[districts.stateHouse];
                 html += createDistrictCard('🏢', `State House District ${districts.stateHouse}`, 
-                    official.name, official.party, null, null);
+                    official.name, official.party, null, null, official.profileSlug);
             }
             
             // State Senate
             if (districts.stateSenate && officials.stateSenate[districts.stateSenate]) {
                 const official = officials.stateSenate[districts.stateSenate];
                 html += createDistrictCard('🏛️', `State Senate District ${districts.stateSenate}`, 
-                    official.name, official.party, null, null);
+                    official.name, official.party, null, null, official.profileSlug);
             }
             
             // Congressional
             if (districts.congressional && officials.congressional[districts.congressional]) {
                 const official = officials.congressional[districts.congressional];
                 html += createDistrictCard('🇺🇸', `Congressional District ${districts.congressional}`, 
-                    official.name, official.party, null, null);
+                    official.name, official.party, null, null, official.profileSlug);
             }
             
             // Justice of the Peace (determine precinct based on commissioner precinct as proxy)
             if (districts.commissioner && officials.jp[districts.commissioner]) {
                 const official = officials.jp[districts.commissioner];
                 html += createDistrictCard('⚖️', `Justice of the Peace Precinct ${districts.commissioner}`, 
-                    official.name, official.party, official.election, null);
+                    official.name, official.party, official.election, null, official.profileSlug);
             }
             
             resultsContainer.innerHTML = html;
         }
         
-        function createDistrictCard(icon, title, officeholder, party, election, candidateLink) {
+        function createDistrictCard(icon, title, officeholder, party, election, candidateLink, profileSlug) {
             let partyBadge = '';
             if (party) {
                 const partyClass = party.toLowerCase() === 'r' ? 'party-r' : 'party-d';
@@ -702,13 +700,19 @@
                 candidateLinkHtml = `<a href="${candidateLink}" class="candidate-link">View Candidates →</a>`;
             }
             
+            // Wrap officeholder name in profile link if profileSlug is provided
+            let officeholderHtml = officeholder;
+            if (profileSlug) {
+                officeholderHtml = `<a href="profiles/${profileSlug}.html" style="color: var(--navy); text-decoration: none;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">${officeholder}</a>`;
+            }
+            
             return `
                 <div class="district-card">
                     <div class="district-header">
                         <span class="district-icon">${icon}</span>
                         <h3 class="district-title">${title}</h3>
                     </div>
-                    <div class="officeholder">${officeholder}</div>
+                    <div class="officeholder">${officeholderHtml}</div>
                     ${partyBadge}
                     ${electionBadge}
                     ${candidateLinkHtml}

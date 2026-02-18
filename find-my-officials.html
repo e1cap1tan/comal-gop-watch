@@ -516,17 +516,18 @@
         async function geocodeAddress(address) {
             try {
                 const encodedAddress = encodeURIComponent(address);
-                const url = `https://geocoding.geo.census.gov/geocoder/locations/onelineaddress?address=${encodedAddress}&benchmark=2020&format=json`;
+                // ArcGIS World Geocoder — CORS-enabled, designed for browser use
+                const url = `https://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer/findAddressCandidates?SingleLine=${encodedAddress}&outFields=*&f=json`;
                 
                 const response = await fetch(url);
                 const data = await response.json();
                 
-                if (data.result?.addressMatches?.length > 0) {
-                    const match = data.result.addressMatches[0];
+                if (data.candidates?.length > 0 && data.candidates[0].score >= 80) {
+                    const match = data.candidates[0];
                     return {
-                        lat: parseFloat(match.coordinates.y),
-                        lon: parseFloat(match.coordinates.x),
-                        matchedAddress: match.matchedAddress
+                        lat: parseFloat(match.location.y),
+                        lon: parseFloat(match.location.x),
+                        matchedAddress: match.address
                     };
                 }
                 return null;

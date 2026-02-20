@@ -575,53 +575,12 @@
         }
 
         .official-row:last-child { border-bottom: none; }
-        .official-row .name { font-weight: 600; color: var(--text); font-size: 14px; flex: 1; text-align: left; }
-        .official-row .title { color: var(--text-muted); font-size: 14px; text-align: right; flex-shrink: 0; }
-
-        .official-row .official-photo {
-            width: 36px;
-            height: 36px;
-            border-radius: 50%;
-            object-fit: cover;
-            flex-shrink: 0;
-        }
-
-        /* ── Calendar ── */
-        .calendar-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-            gap: 16px;
-        }
-
-        .calendar-item {
-            background: var(--white);
-            border-radius: 10px;
-            padding: 20px 24px;
-            border: 1px solid var(--border);
-            display: flex;
-            align-items: center;
-            gap: 20px;
-            box-shadow: 0 1px 4px rgba(0,0,0,0.04);
-        }
-
-        .calendar-item.upcoming {
-            border-left: 4px solid var(--gold);
-            background: linear-gradient(90deg, #FFFBEB, var(--white));
-        }
-        .calendar-item.past {
-            opacity: 0.5;
-            text-decoration: line-through;
-        }
-
-        .cal-date {
-            font-family: 'Playfair Display', serif;
-            font-weight: 700;
-            font-size: 15px;
-            color: var(--navy);
-            min-width: 100px;
-        }
-
-        .cal-event { font-weight: 500; }
+        .official-row .official-name { font-weight: 600; color: var(--text); font-size: 14px; flex: 1; text-align: left; display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+        .official-row .official-title { color: var(--text-muted); font-size: 13px; text-align: right; flex-shrink: 0; }
+        .official-party { font-size: 10px; font-weight: 700; padding: 1px 5px; border-radius: 3px; letter-spacing: 0.05em; }
+        .party-r { background: #fee2e2; color: #991b1b; }
+        .party-d { background: #dbeafe; color: #1e40af; }
+        .official-election { font-size: 10px; color: var(--gold); font-weight: 600; white-space: nowrap; }
 
         /* ── Responsive ── */
         @media (max-width: 900px) {
@@ -638,7 +597,6 @@
         @media (max-width: 480px) {
             .hero { height: 300px; }
             .hero h1 { font-size: 28px; }
-            .calendar-grid { grid-template-columns: 1fr; }
             .star-divider::before, .star-divider::after { width: 40px; }
             .races-grid { grid-template-columns: 1fr; }
             .featured-story .story-content { padding: 16px; }
@@ -1072,23 +1030,6 @@
             }
         }
 
-        function renderElectionCalendar(data) {
-            var calEl = document.getElementById('election-calendar');
-            var today = new Date();
-            today.setHours(0, 0, 0, 0);
-            var foundNext = false;
-            var html = '';
-            (data.election_calendar || []).forEach(function (item) {
-                var endDate = new Date((item.end_iso || item.iso) + 'T23:59:59');
-                var isPast = endDate < today;
-                var cls = 'calendar-item';
-                if (!isPast && !foundNext) { cls += ' upcoming'; foundNext = true; }
-                else if (isPast) { cls += ' past'; }
-                html += '<div class="' + cls + '">' +
-                    '<div class="cal-date">' + item.date + '</div>' +
-                    '<div class="cal-event">' + item.event + '</div>' +
-                    '</div>';
-            });
         function renderOfficials(data) {
             var gridEl = document.getElementById('officials-grid');
             if (!gridEl) return;

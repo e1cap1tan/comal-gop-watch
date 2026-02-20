@@ -131,36 +131,56 @@
         }
 
         .election-date-section {
-            margin-bottom: 40px;
-            background: var(--cream);
-            border-radius: 12px;
-            padding: 32px;
-            border: 1px solid var(--border);
-            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            margin-bottom: 32px;
         }
 
-        .election-date-section h3 {
-            font-size: 24px;
-            color: var(--navy-dark);
+        .election-date-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
             margin-bottom: 16px;
-            border-bottom: 2px solid var(--red);
-            padding-bottom: 8px;
+        }
+
+        .election-date-header h3 {
+            font-size: 20px;
+            color: var(--navy-dark);
+            font-weight: 700;
+            white-space: nowrap;
+        }
+
+        .election-date-header::after {
+            content: '';
+            flex: 1;
+            height: 2px;
+            background: var(--red);
+            opacity: 0.4;
+        }
+
+        .early-voting-alert {
+            display: inline-block;
+            margin-bottom: 14px;
+        }
+
+        .races-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 14px;
         }
 
         .compact-race {
             background: var(--white);
             border-radius: 8px;
-            padding: 20px;
-            margin-bottom: 16px;
+            padding: 16px;
             border: 1px solid var(--border);
             box-shadow: 0 1px 4px rgba(0,0,0,0.04);
         }
 
         .compact-race h4 {
-            font-size: 18px;
+            font-size: 15px;
             color: var(--navy);
-            margin-bottom: 12px;
+            margin-bottom: 10px;
             font-weight: 600;
+            line-height: 1.3;
         }
 
         .candidate-list {
@@ -537,7 +557,7 @@
             .alert-banner { flex-direction: column; text-align: center; margin: -16px 16px 40px; }
             .feed-section .section-header { flex-direction: column; gap: 8px; }
             .news-featured-row { grid-template-columns: 1fr; }
-            .candidate-list { flex-direction: column; }
+            .races-grid { grid-template-columns: 1fr 1fr; }
         }
 
         @media (max-width: 480px) {
@@ -545,7 +565,7 @@
             .hero h1 { font-size: 28px; }
             .calendar-grid { grid-template-columns: 1fr; }
             .star-divider::before, .star-divider::after { width: 40px; }
-            .election-date-section { padding: 20px; }
+            .races-grid { grid-template-columns: 1fr; }
             .featured-story .story-content { padding: 16px; }
             .full-width-story { flex-direction: column; }
         }
@@ -577,186 +597,190 @@
         <div class="races-by-date">
             <!-- PRIMARY ELECTIONS - March 3, 2026 -->
             <div class="election-date-section">
-                <h3>Primary Elections — March 3, 2026</h3>
+                <div class="election-date-header">
+                    <h3>🗳️ Primary Elections — March 3, 2026</h3>
+                </div>
                 <div class="early-voting-alert">
                     🗳️ Early Voting Starts February 17!
                 </div>
-
-                <!-- Comal County Commissioner Races -->
-                <div class="compact-race">
-                    <h4>Comal County Commissioner Precinct 2</h4>
-                    <div class="candidate-list">
-                        <a href="profiles/john-stratemann.html" class="candidate-chip">
-                            <img src="images/default-person.png" alt="" class="candidate-thumb">
-                            John Stratemann
-                        </a>
-                        <a href="profiles/steve-minus.html" class="candidate-chip">
-                            <img src="images/default-person.png" alt="" class="candidate-thumb">
-                            Steve Minus
-                        </a>
-                        <a href="profiles/steven-rollins.html" class="candidate-chip">
-                            <img src="images/default-person.png" alt="" class="candidate-thumb">
-                            Steven Rollins
-                        </a>
+                <div class="races-grid">
+                    <div class="compact-race">
+                        <h4>Comal County Commissioner Precinct 2</h4>
+                        <div class="candidate-list">
+                            <a href="profiles/john-stratemann.html" class="candidate-chip">
+                                <img src="images/default-person.png" alt="" class="candidate-thumb">
+                                John Stratemann
+                            </a>
+                            <a href="profiles/steve-minus.html" class="candidate-chip">
+                                <img src="images/default-person.png" alt="" class="candidate-thumb">
+                                Steve Minus
+                            </a>
+                            <a href="profiles/steven-rollins.html" class="candidate-chip">
+                                <img src="images/default-person.png" alt="" class="candidate-thumb">
+                                Steven Rollins
+                            </a>
+                        </div>
                     </div>
-                </div>
 
-                <div class="compact-race">
-                    <h4>Comal County Commissioner Precinct 4</h4>
-                    <div class="candidate-list">
-                        <a href="profiles/jen-crownover.html" class="candidate-chip">
-                            <img src="images/jen-crownover.jpg" alt="" class="candidate-thumb">
-                            Jen Crownover <span style="color: var(--text-muted);">(Unopposed)</span>
-                        </a>
+                    <div class="compact-race">
+                        <h4>Comal County Commissioner Precinct 4</h4>
+                        <div class="candidate-list">
+                            <a href="profiles/jen-crownover.html" class="candidate-chip">
+                                <img src="images/jen-crownover.jpg" alt="" class="candidate-thumb">
+                                Jen Crownover <span style="color: var(--text-muted);">(Unopposed)</span>
+                            </a>
+                        </div>
                     </div>
-                </div>
 
-                <!-- Justice of Peace Races -->
-                <div class="compact-race">
-                    <h4>Justice of Peace Precinct 1</h4>
-                    <div class="candidate-list">
-                        <a href="profiles/tom-clark.html" class="candidate-chip incumbent">
-                            <img src="images/default-person.png" alt="" class="candidate-thumb">
-                            <span class="incumbent-star">★</span>
-                            Tom Clark (Incumbent)
-                        </a>
+                    <div class="compact-race">
+                        <h4>Justice of Peace Precinct 1</h4>
+                        <div class="candidate-list">
+                            <a href="profiles/tom-clark.html" class="candidate-chip incumbent">
+                                <img src="images/default-person.png" alt="" class="candidate-thumb">
+                                <span class="incumbent-star">★</span>
+                                Tom Clark (Incumbent)
+                            </a>
+                        </div>
                     </div>
-                </div>
 
-                <!-- County Clerk Race -->
-                <div class="compact-race">
-                    <h4>Comal County Clerk</h4>
-                    <div class="candidate-list">
-                        <a href="profiles/ryan-bourbon-stuart.html" class="candidate-chip">
-                            <img src="images/default-person.png" alt="" class="candidate-thumb">
-                            Ryan Bourbon-Stuart
-                        </a>
-                        <a href="profiles/garrison-maurer.html" class="candidate-chip">
-                            <img src="images/default-person.png" alt="" class="candidate-thumb">
-                            Garrison Maurer
-                        </a>
-                        <a href="profiles/leann-miller.html" class="candidate-chip">
-                            <img src="images/default-person.png" alt="" class="candidate-thumb">
-                            LeAnn Miller
-                        </a>
-                        <a href="profiles/romelle-walkup.html" class="candidate-chip">
-                            <img src="images/default-person.png" alt="" class="candidate-thumb">
-                            Romelle "Melle" Walkup
-                        </a>
+                    <div class="compact-race">
+                        <h4>Comal County Clerk</h4>
+                        <div class="candidate-list">
+                            <a href="profiles/ryan-bourbon-stuart.html" class="candidate-chip">
+                                <img src="images/default-person.png" alt="" class="candidate-thumb">
+                                Ryan Bourbon-Stuart
+                            </a>
+                            <a href="profiles/garrison-maurer.html" class="candidate-chip">
+                                <img src="images/default-person.png" alt="" class="candidate-thumb">
+                                Garrison Maurer
+                            </a>
+                            <a href="profiles/leann-miller.html" class="candidate-chip">
+                                <img src="images/default-person.png" alt="" class="candidate-thumb">
+                                LeAnn Miller
+                            </a>
+                            <a href="profiles/romelle-walkup.html" class="candidate-chip">
+                                <img src="images/default-person.png" alt="" class="candidate-thumb">
+                                Romelle "Melle" Walkup
+                            </a>
+                        </div>
                     </div>
-                </div>
 
-                <!-- County Judge Race -->
-                <div class="compact-race">
-                    <h4>Comal County Judge <span style="color: var(--red);">(Vacant after Krause's passing)</span></h4>
-                    <div class="candidate-list">
-                        <a href="profiles/kristen-hoyt.html" class="candidate-chip">
-                            <img src="images/default-person.png" alt="" class="candidate-thumb">
-                            Kristen Hoyt
-                        </a>
-                        <a href="profiles/kayne-parrish.html" class="candidate-chip">
-                            <img src="images/default-person.png" alt="" class="candidate-thumb">
-                            Kayne Parrish
-                        </a>
+                    <div class="compact-race">
+                        <h4>Comal County Judge <span style="color: var(--red); font-size: 13px;">(Vacant — Krause's passing)</span></h4>
+                        <div class="candidate-list">
+                            <a href="profiles/kristen-hoyt.html" class="candidate-chip">
+                                <img src="images/default-person.png" alt="" class="candidate-thumb">
+                                Kristen Hoyt
+                            </a>
+                            <a href="profiles/kayne-parrish.html" class="candidate-chip">
+                                <img src="images/default-person.png" alt="" class="candidate-thumb">
+                                Kayne Parrish
+                            </a>
+                        </div>
                     </div>
-                </div>
 
-                <!-- Congressional Races -->
-                <div class="compact-race">
-                    <h4>US House District 21 (Republican Primary)</h4>
-                    <div class="candidate-list">
-                        <a href="profiles/mark-teixeira.html" class="candidate-chip">
-                            <img src="images/default-person.png" alt="" class="candidate-thumb">
-                            Mark Teixeira
-                        </a>
-                        <a href="profiles/paul-rojas.html" class="candidate-chip">
-                            <img src="images/default-person.png" alt="" class="candidate-thumb">
-                            Paul Rojas
-                        </a>
-                        <div class="candidate-chip">Others</div>
+                    <div class="compact-race">
+                        <h4>US House District 21 (Republican Primary)</h4>
+                        <div class="candidate-list">
+                            <a href="profiles/mark-teixeira.html" class="candidate-chip">
+                                <img src="images/default-person.png" alt="" class="candidate-thumb">
+                                Mark Teixeira
+                            </a>
+                            <a href="profiles/paul-rojas.html" class="candidate-chip">
+                                <img src="images/default-person.png" alt="" class="candidate-thumb">
+                                Paul Rojas
+                            </a>
+                            <div class="candidate-chip">Others</div>
+                        </div>
                     </div>
                 </div>
             </div>
 
             <!-- MUNICIPAL ELECTION - May 2, 2026 -->
             <div class="election-date-section">
-                <h3>Municipal Election — May 2, 2026</h3>
-
-                <div class="compact-race">
-                    <h4>Mayor — New Braunfels</h4>
-                    <div class="candidate-list">
-                        <a href="profiles/neal-linnartz.html" class="candidate-chip incumbent">
-                            <img src="images/neal-linnartz.jpg" alt="" class="candidate-thumb">
-                            <span class="incumbent-star">★</span>
-                            Neal Linnartz
-                        </a>
-                        <a href="profiles/michael-french.html" class="candidate-chip">
-                            <img src="images/michael-french.jpg" alt="" class="candidate-thumb">
-                            Michael French
-                        </a>
-                        <a href="profiles/bradley-porter.html" class="candidate-chip">
-                            <img src="images/default-person.png" alt="" class="candidate-thumb">
-                            Bradley Porter
-                        </a>
-                        <a href="profiles/angela-allen.html" class="candidate-chip">
-                            <img src="images/angela-allen.jpg" alt="" class="candidate-thumb">
-                            Angela Allen
-                        </a>
-                        <a href="profiles/jonathon-frazier.html" class="candidate-chip">
-                            <img src="images/default-person.png" alt="" class="candidate-thumb">
-                            Jonathon Frazier
-                        </a>
-                    </div>
+                <div class="election-date-header">
+                    <h3>🏛️ Municipal Election — May 2, 2026</h3>
                 </div>
-
-                <div class="compact-race">
-                    <h4>City Council District 5</h4>
-                    <div class="candidate-list">
-                        <a href="profiles/mary-ann-labowski.html" class="candidate-chip incumbent">
-                            <img src="images/mary-ann-labowski.jpg" alt="" class="candidate-thumb">
-                            <span class="incumbent-star">★</span>
-                            Mary Ann Labowski <span style="color: var(--text-muted);">(No challengers yet)</span>
-                        </a>
+                <div class="races-grid">
+                    <div class="compact-race">
+                        <h4>Mayor — New Braunfels</h4>
+                        <div class="candidate-list">
+                            <a href="profiles/neal-linnartz.html" class="candidate-chip incumbent">
+                                <img src="images/neal-linnartz.jpg" alt="" class="candidate-thumb">
+                                <span class="incumbent-star">★</span>
+                                Neal Linnartz
+                            </a>
+                            <a href="profiles/michael-french.html" class="candidate-chip">
+                                <img src="images/michael-french.jpg" alt="" class="candidate-thumb">
+                                Michael French
+                            </a>
+                            <a href="profiles/bradley-porter.html" class="candidate-chip">
+                                <img src="images/default-person.png" alt="" class="candidate-thumb">
+                                Bradley Porter
+                            </a>
+                            <a href="profiles/angela-allen.html" class="candidate-chip">
+                                <img src="images/angela-allen.jpg" alt="" class="candidate-thumb">
+                                Angela Allen
+                            </a>
+                            <a href="profiles/jonathon-frazier.html" class="candidate-chip">
+                                <img src="images/default-person.png" alt="" class="candidate-thumb">
+                                Jonathon Frazier
+                            </a>
+                        </div>
                     </div>
-                </div>
 
-                <div class="compact-race">
-                    <h4>City Council District 6</h4>
-                    <div class="candidate-list">
-                        <a href="profiles/april-ryan.html" class="candidate-chip incumbent">
-                            <img src="images/april-ryan.jpg" alt="" class="candidate-thumb">
-                            <span class="incumbent-star">★</span>
-                            April Ryan <span style="color: var(--text-muted);">(No challengers yet)</span>
-                        </a>
+                    <div class="compact-race">
+                        <h4>City Council District 5</h4>
+                        <div class="candidate-list">
+                            <a href="profiles/mary-ann-labowski.html" class="candidate-chip incumbent">
+                                <img src="images/mary-ann-labowski.jpg" alt="" class="candidate-thumb">
+                                <span class="incumbent-star">★</span>
+                                Mary Ann Labowski <span style="color: var(--text-muted);">(No challengers yet)</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="compact-race">
+                        <h4>City Council District 6</h4>
+                        <div class="candidate-list">
+                            <a href="profiles/april-ryan.html" class="candidate-chip incumbent">
+                                <img src="images/april-ryan.jpg" alt="" class="candidate-thumb">
+                                <span class="incumbent-star">★</span>
+                                April Ryan <span style="color: var(--text-muted);">(No challengers yet)</span>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
 
             <!-- GENERAL ELECTION - November 3, 2026 -->
             <div class="election-date-section">
-                <h3>General Election — November 3, 2026</h3>
-                
-                <div class="compact-race">
-                    <h4>State Representative District 73</h4>
-                    <div class="candidate-list">
-                        <a href="profiles/carrie-isaac.html" class="candidate-chip incumbent">
-                            <img src="images/carrie-isaac.jpg" alt="" class="candidate-thumb">
-                            <span class="incumbent-star">★</span>
-                            Carrie Isaac (R)
-                        </a>
-                        <div class="candidate-chip">TBA (Democratic nominee)</div>
-                    </div>
+                <div class="election-date-header">
+                    <h3>🇺🇸 General Election — November 3, 2026</h3>
                 </div>
+                <div class="races-grid">
+                    <div class="compact-race">
+                        <h4>State Representative District 73</h4>
+                        <div class="candidate-list">
+                            <a href="profiles/carrie-isaac.html" class="candidate-chip incumbent">
+                                <img src="images/carrie-isaac.jpg" alt="" class="candidate-thumb">
+                                <span class="incumbent-star">★</span>
+                                Carrie Isaac (R)
+                            </a>
+                            <div class="candidate-chip">TBA (Democratic nominee)</div>
+                        </div>
+                    </div>
 
-                <div class="compact-race">
-                    <h4>State Senator District 25</h4>
-                    <div class="candidate-list">
-                        <a href="profiles/donna-campbell.html" class="candidate-chip incumbent">
-                            <img src="images/donna-campbell.jpg" alt="" class="candidate-thumb">
-                            <span class="incumbent-star">★</span>
-                            Donna Campbell (R)
-                        </a>
-                        <div class="candidate-chip">TBA (Democratic nominee)</div>
+                    <div class="compact-race">
+                        <h4>State Senator District 25</h4>
+                        <div class="candidate-list">
+                            <a href="profiles/donna-campbell.html" class="candidate-chip incumbent">
+                                <img src="images/donna-campbell.jpg" alt="" class="candidate-thumb">
+                                <span class="incumbent-star">★</span>
+                                Donna Campbell (R)
+                            </a>
+                            <div class="candidate-chip">TBA (Democratic nominee)</div>
+                        </div>
                     </div>
                 </div>
             </div>
